@@ -1,0 +1,41 @@
+<div class="detail-container">
+  <div *ngIf="loading" class="loading">
+    <div class="spinner"></div>
+    <p>Loading project...</p>
+  </div>
+  
+  <div *ngIf="error" class="error-message">
+    <p>{{ error }}</p>
+    <a routerLink="/projects" class="back-btn">Back to Projects</a>
+  </div>
+  
+  <div *ngIf="!loading && !error && project" class="project-detail">
+    <div class="detail-header">
+      <a routerLink="/projects" class="back-link">← Back to Projects</a>
+      <h1>{{ project.name }}</h1>
+      <p class="project-description">{{ project.description }}</p>
+      
+      <div class="tech-stack">
+        <span class="tech-tag" *ngFor="let tech of project.technologies">{{ tech }}</span>
+      </div>
+      
+      <div class="project-links" *ngIf="project.repository_url || project.live_url">
+        <a *ngIf="project.repository_url" [href]="project.repository_url" target="_blank" rel="noopener" class="btn btn-secondary">
+          View Code →
+        </a>
+        <a *ngIf="project.live_url" [href]="project.live_url" target="_blank" rel="noopener" class="btn btn-primary">
+          Live Demo →
+        </a>
+      </div>
+    </div>
+    
+    <div class="detail-body">
+      <h2>About This Project</h2>
+      <div class="long-description">
+        <p *ngFor="let paragraph of project.long_description.split('\n\n')">
+          {{ paragraph }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
