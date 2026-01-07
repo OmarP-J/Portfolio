@@ -42,3 +42,8 @@ Thumbs.db
 .coverage
 htmlcov/
 .pytest_cache/
+
+# Documentation
+ARCHITECTURE.md
+QUICKSTART.md
+START_HERE.md
