@@ -1,39 +1,50 @@
 <div class="detail-container">
   <div *ngIf="loading" class="loading">
     <div class="spinner"></div>
-    <p>Loading project...</p>
+    <p>{{ 'PROJECTS.LOADING_DETAIL' | translate }}</p>
   </div>
-  
+
   <div *ngIf="error" class="error-message">
     <p>{{ error }}</p>
-    <a routerLink="/projects" class="back-btn">Back to Projects</a>
+    <a routerLink="/projects" class="back-btn">{{ 'PROJECTS.BACK_TO_PROJECTS' | translate }}</a>
   </div>
-  
-  <div *ngIf="!loading && !error && project" class="project-detail">
+
+  <div *ngIf="!loading && !error && project" class="project-detail animate-fade-in">
     <div class="detail-header">
-      <a routerLink="/projects" class="back-link">← Back to Projects</a>
-      <h1>{{ project.name }}</h1>
-      <p class="project-description">{{ project.description }}</p>
-      
+      <a routerLink="/projects" class="back-link">
+        <span class="arrow">←</span> {{ 'NAV.PROJECTS' | translate }}
+      </a>
+
+      <h1 class="glow-text">{{ 'PROJECTS.ITEMS.' + project.id + '.NAME' | translate }}</h1>
+      <p class="project-description">{{ 'PROJECTS.ITEMS.' + project.id + '.DESC' | translate }}</p>
+
       <div class="tech-stack">
-        <span class="tech-tag" *ngFor="let tech of project.technologies">{{ tech }}</span>
+        <div class="tech-tag" *ngFor="let tech of project.technologies">
+          <i [class]="getTechIcon(tech)" *ngIf="getTechIcon(tech)"></i>
+          <span>{{ tech }}</span>
+        </div>
       </div>
-      
+
       <div class="project-links" *ngIf="project.repository_url || project.live_url">
-        <a *ngIf="project.repository_url" [href]="project.repository_url" target="_blank" rel="noopener" class="btn btn-secondary">
-          View Code →
+        <a *ngIf="project.repository_url" [href]="project.repository_url" target="_blank" rel="noopener"
+          class="btn btn-glass">
+          <i class="devicon-github-original"></i> {{ 'PROJECTS.VIEW_CODE' | translate }}
         </a>
         <a *ngIf="project.live_url" [href]="project.live_url" target="_blank" rel="noopener" class="btn btn-primary">
-          Live Demo →
+          {{ 'PROJECTS.LIVE_DEMO' | translate }}
         </a>
       </div>
     </div>
-    
+
     <div class="detail-body">
-      <h2>About This Project</h2>
+      <div class="section-title">
+        <div class="line"></div>
+        <h2>{{ 'PROJECTS.ABOUT_PROJECT' | translate }}</h2>
+      </div>
+
       <div class="long-description">
-        <p *ngFor="let paragraph of project.long_description.split('\n\n')">
-          {{ paragraph }}
+        <p>
+          {{ 'PROJECTS.ITEMS.' + project.id + '.LONG_DESC' | translate }}
         </p>
       </div>
     </div>

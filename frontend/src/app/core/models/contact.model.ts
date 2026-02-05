@@ -2,10 +2,10 @@
  * Contact form interface
  */
 export interface ContactForm {
-    name: string;
-    email: string;
-    subject: string;
-    message: string;
+    nombre: string;
+    correo: string;
+    asunto: string;
+    mensaje: string;
 }
 
 /**
@@ -13,5 +13,5 @@ export interface ContactForm {
  */
 export interface ContactResponse {
     success: boolean;
-    message: string;
+    error?: string;
 }

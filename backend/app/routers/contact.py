@@ -45,15 +45,15 @@ async def submit_contact_form(contact_data: ContactRequest):
     Raises:
         HTTPException: 500 if message processing fails
     """
-    success = contact_service.process_contact_message(contact_data.model_dump())
+    success = await contact_service.process_contact_message(contact_data.model_dump())
     
     if not success:
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Failed to process contact message. Please try again later.",
+        return ContactResponse(
+            success=False,
+            error="No se pudo procesar el mensaje de contacto. Por favor, inténtelo de nuevo más tarde."
         )
     
     return ContactResponse(
         success=True,
-        message="Thank you for your message! I'll get back to you as soon as possible.",
+        error=None
     )

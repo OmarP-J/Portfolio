@@ -25,10 +25,10 @@ export class ContactComponent {
         private translationService: TranslationService
     ) {
         this.contactForm = this.fb.group({
-            name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
-            email: ['', [Validators.required, Validators.email]],
-            subject: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(200)]],
-            message: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(2000)]]
+            nombre: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
+            correo: ['', [Validators.required, Validators.email]],
+            asunto: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(200)]],
+            mensaje: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(2000)]]
         });
     }
 
@@ -49,13 +49,17 @@ export class ContactComponent {
 
         this.contactService.submitContactForm(this.contactForm.value).subscribe({
             next: (response) => {
-                this.successMessage = response.message;
-                this.contactForm.reset();
-                this.submitted = false;
+                if (response.success) {
+                    this.successMessage = 'CONTACT.SUCCESS';
+                    this.contactForm.reset();
+                    this.submitted = false;
+                } else {
+                    this.errorMessage = 'CONTACT.ERROR';
+                }
                 this.loading = false;
             },
-            error: (err) => {
-                this.errorMessage = err.message || 'Failed to send message. Please try again.';
+            error: () => {
+                this.errorMessage = 'CONTACT.ERROR';
                 this.loading = false;
             }
         });

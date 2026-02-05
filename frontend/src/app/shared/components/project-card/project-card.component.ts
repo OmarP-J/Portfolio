@@ -39,19 +39,24 @@ import { TranslatePipe } from '@shared/pipes/translate.pipe';
   `,
   styles: [`
     .project-card {
-      background: #111111; /* Pure dark for the card */
+      background: var(--bg-card);
       border-radius: 20px;
-      border: 1px solid #333;
+      border: 1px solid var(--border);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       overflow: hidden;
       display: flex;
       flex-direction: column;
       height: 100%;
+      box-shadow: var(--shadow);
     }
 
     .project-card:hover {
       transform: translateY(-8px);
       border-color: var(--primary);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
+    }
+
+    [data-theme="dark"] .project-card:hover {
       box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
     }
 
@@ -68,7 +73,7 @@ import { TranslatePipe } from '@shared/pipes/translate.pipe';
       height: 100%;
       object-fit: cover;
       transition: transform 0.5s ease;
-      opacity: 0.8;
+      opacity: 0.85;
     }
 
     .project-card:hover .project-image {
@@ -100,7 +105,7 @@ import { TranslatePipe } from '@shared/pipes/translate.pipe';
     }
 
     .project-title {
-      color: #ffffff;
+      color: var(--text-main);
       font-size: 1.4rem;
       margin: 0 0 1rem 0;
       font-weight: 700;
@@ -108,7 +113,7 @@ import { TranslatePipe } from '@shared/pipes/translate.pipe';
     }
 
     .project-description {
-      color: #a1a1aa;
+      color: var(--text-secondary);
       line-height: 1.7;
       margin-bottom: 1.5rem;
       font-size: 0.95rem;
@@ -121,19 +126,20 @@ import { TranslatePipe } from '@shared/pipes/translate.pipe';
     }
 
     .tech-tag {
-      background: #222;
-      color: #e2e8f0;
+      background: var(--bg-body);
+      color: var(--text-main);
       padding: 0.4rem 0.9rem;
       border-radius: 8px;
       font-size: 0.75rem;
       font-weight: 600;
-      border: 1px solid #333;
+      border: 1px solid var(--border);
     }
 
     .card-footer {
       padding: 1.2rem 1.8rem;
-      border-top: 1px solid #222;
-      background: #0d0d0d;
+      border-top: 1px solid var(--border);
+      background: var(--bg-body);
+      opacity: 0.9;
     }
 
     .view-details-btn {

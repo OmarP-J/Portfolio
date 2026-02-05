@@ -25,11 +25,11 @@ class Settings(BaseSettings):
     CORS_ORIGINS: str = "http://localhost:4200,http://localhost:8000"
     
     # Email Configuration
-    SMTP_HOST: str = "smtp.gmail.com"
-    SMTP_PORT: int = 587
-    SMTP_USER: str = ""
-    SMTP_PASSWORD: str = ""
-    CONTACT_EMAIL_TO: str = ""
+    EMAIL_HOST: str = "smtp.gmail.com"
+    EMAIL_PORT: int = 587
+    EMAIL_USER: str = ""
+    EMAIL_PASSWORD: str = ""
+    CONTACT_EMAIL_TO: str = "j.omar.polanco.j@gmail.com"
     
     @field_validator("CORS_ORIGINS")
     @classmethod

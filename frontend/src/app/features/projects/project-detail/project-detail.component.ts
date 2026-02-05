@@ -1,17 +1,15 @@
-/**
- * Project Detail Component
- * Displays full project information
- */
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ProjectService } from '@core/services/project.service';
 import { Project } from '@core/models/project.model';
+import { TranslatePipe } from '@shared/pipes/translate.pipe';
+import { TECH_STACK } from '@features/about/tech-icons.constants';
 
 @Component({
     selector: 'app-project-detail',
     standalone: true,
-    imports: [CommonModule, RouterModule],
+    imports: [CommonModule, RouterModule, TranslatePipe],
     templateUrl: './project-detail.component.html',
     styleUrl: './project-detail.component.css'
 })
@@ -46,5 +44,13 @@ export class ProjectDetailComponent implements OnInit {
                 this.loading = false;
             }
         });
+    }
+
+    getTechIcon(techName: string): string {
+        for (const category of TECH_STACK) {
+            const item = category.items.find(i => i.name.toLowerCase() === techName.toLowerCase());
+            if (item) return item.iconClass;
+        }
+        return '';
     }
 }

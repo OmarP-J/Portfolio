@@ -78,7 +78,7 @@
         <img [src]="selectedCertificate.image_url" [alt]="selectedCertificate.name" class="modal-image">
       </div>
       <div class="modal-details">
-        <h3>{{ selectedCertificate.name }}</h3>
+        <h3>{{ selectedCertificate.name | translate }}</h3>
         <p>{{ selectedCertificate.issuer }} • {{ selectedCertificate.date }}</p>
       </div>
     </div>

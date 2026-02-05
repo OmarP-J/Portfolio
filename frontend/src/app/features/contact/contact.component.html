@@ -13,50 +13,51 @@
 
     <div class="form-container">
       <div *ngIf="successMessage" class="alert alert-success">
-        {{ successMessage }}
+        {{ successMessage | translate }}
       </div>
 
       <div *ngIf="errorMessage" class="alert alert-error">
-        {{ errorMessage }}
+        {{ errorMessage | translate }}
       </div>
 
       <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
         <div class="form-group">
-          <label for="name">{{ 'CONTACT.NAME' | translate }} *</label>
-          <input type="text" id="name" formControlName="name" class="form-control"
-            [class.is-invalid]="submitted && f['name'].errors" />
-          <div *ngIf="submitted && f['name'].errors" class="error-message">
-            <div *ngIf="f['name'].errors['required']">{{ 'CONTACT.NAME' | translate }} {{ 'CONTACT.REQUIRED' | translate
+          <label for="nombre">{{ 'CONTACT.NAME' | translate }} *</label>
+          <input type="text" id="nombre" formControlName="nombre" class="form-control"
+            [class.is-invalid]="submitted && f['nombre'].errors" />
+          <div *ngIf="submitted && f['nombre'].errors" class="error-message">
+            <div *ngIf="f['nombre'].errors['required']">{{ 'CONTACT.NAME' | translate }} {{ 'CONTACT.REQUIRED' |
+              translate
               }}</div>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="email">{{ 'CONTACT.EMAIL' | translate }} *</label>
-          <input type="email" id="email" formControlName="email" class="form-control"
-            [class.is-invalid]="submitted && f['email'].errors" />
-          <div *ngIf="submitted && f['email'].errors" class="error-message">
-            <div *ngIf="f['email'].errors['required']">{{ 'CONTACT.EMAIL' | translate }} {{ 'CONTACT.REQUIRED' |
+          <label for="correo">{{ 'CONTACT.EMAIL' | translate }} *</label>
+          <input type="email" id="correo" formControlName="correo" class="form-control"
+            [class.is-invalid]="submitted && f['correo'].errors" />
+          <div *ngIf="submitted && f['correo'].errors" class="error-message">
+            <div *ngIf="f['correo'].errors['required']">{{ 'CONTACT.EMAIL' | translate }} {{ 'CONTACT.REQUIRED' |
               translate }}</div>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="subject">{{ 'CONTACT.SUBJECT' | translate }} *</label>
-          <input type="text" id="subject" formControlName="subject" class="form-control"
-            [class.is-invalid]="submitted && f['subject'].errors" />
-          <div *ngIf="submitted && f['subject'].errors" class="error-message">
-            <div *ngIf="f['subject'].errors['required']">{{ 'CONTACT.SUBJECT' | translate }} {{ 'CONTACT.REQUIRED' |
+          <label for="asunto">{{ 'CONTACT.SUBJECT' | translate }} *</label>
+          <input type="text" id="asunto" formControlName="asunto" class="form-control"
+            [class.is-invalid]="submitted && f['asunto'].errors" />
+          <div *ngIf="submitted && f['asunto'].errors" class="error-message">
+            <div *ngIf="f['asunto'].errors['required']">{{ 'CONTACT.SUBJECT' | translate }} {{ 'CONTACT.REQUIRED' |
               translate }}</div>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="message">{{ 'CONTACT.MESSAGE' | translate }} *</label>
-          <textarea id="message" formControlName="message" rows="6" class="form-control"
-            [class.is-invalid]="submitted && f['message'].errors"></textarea>
-          <div *ngIf="submitted && f['message'].errors" class="error-message">
-            <div *ngIf="f['message'].errors['required']">{{ 'CONTACT.MESSAGE' | translate }} {{ 'CONTACT.REQUIRED' |
+          <label for="mensaje">{{ 'CONTACT.MESSAGE' | translate }} *</label>
+          <textarea id="mensaje" formControlName="mensaje" rows="6" class="form-control"
+            [class.is-invalid]="submitted && f['mensaje'].errors"></textarea>
+          <div *ngIf="submitted && f['mensaje'].errors" class="error-message">
+            <div *ngIf="f['mensaje'].errors['required']">{{ 'CONTACT.MESSAGE' | translate }} {{ 'CONTACT.REQUIRED' |
               translate }}</div>
           </div>
         </div>

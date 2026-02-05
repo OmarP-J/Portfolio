@@ -94,26 +94,35 @@ export class TranslationService {
                     VIEW: 'Verify Credential'
                 },
                 LOADING: 'Loading...',
+                LOADING_DETAIL: 'Loading project...',
                 NO_PROJECTS: 'No items found.',
                 VIEW_DETAILS: 'View Details',
+                ABOUT_PROJECT: 'About the Project',
+                VIEW_CODE: 'View Code',
+                LIVE_DEMO: 'Live Demo',
+                BACK_TO_PROJECTS: 'Back to Projects',
                 FEATURED: 'Featured',
                 RETRY: 'Retry',
                 ITEMS: {
                     'ai-resume-matcher': {
                         NAME: 'AI Resume & Job Matcher',
-                        DESC: 'Intelligent system that matches resumes with job descriptions using AI and NLP'
+                        DESC: 'Intelligent system that matches resumes with job descriptions using AI and NLP',
+                        LONG_DESC: 'An advanced AI-powered application that analyzes resumes and job descriptions to provide intelligent matching scores and recommendations. Built with Python, FastAPI, and modern AI libraries, this system helps recruiters and job seekers find the best matches.'
                     },
                     'intelligent-support-bot': {
                         NAME: 'Intelligent Customer Support Bot',
-                        DESC: 'AI-powered customer support system using RAG (Retrieval-Augmented Generation)'
+                        DESC: 'AI-powered customer support system using RAG (Retrieval-Augmented Generation)',
+                        LONG_DESC: 'A sophisticated customer support bot that leverages RAG technology to provide accurate, context-aware responses. The system can understand customer queries, retrieve relevant information from a knowledge base, and generate helpful responses.'
                     },
                     'fraud-detection-system': {
                         NAME: 'Fraud Detection System',
-                        DESC: 'Machine learning system for real-time fraud detection in financial transactions'
+                        DESC: 'Machine learning system for real-time fraud detection in financial transactions',
+                        LONG_DESC: 'A production-ready fraud detection system that analyzes financial transactions in real-time to identify potential fraud. Uses machine learning models and statistical analysis to provide accurate fraud risk assessments.'
                     },
                     'portfolio-web': {
                         NAME: 'Professional Portfolio Platform',
-                        DESC: 'Modern full-stack portfolio application with Angular and FastAPI'
+                        DESC: 'Modern full-stack portfolio application with Angular and FastAPI',
+                        LONG_DESC: 'A complete, production-ready portfolio platform showcasing modern web development best practices. Features a FastAPI backend with layered architecture and an Angular frontend with lazy loading and responsive design.'
                     }
                 }
             },
@@ -250,26 +259,35 @@ export class TranslationService {
                     VIEW: 'Verificar Credencial'
                 },
                 LOADING: 'Cargando...',
+                LOADING_DETAIL: 'Cargando proyecto...',
                 NO_PROJECTS: 'No se encontraron elementos.',
                 VIEW_DETAILS: 'Ver Detalles',
+                ABOUT_PROJECT: 'Sobre el Proyecto',
+                VIEW_CODE: 'Ver Código',
+                LIVE_DEMO: 'Demo en Vivo',
+                BACK_TO_PROJECTS: 'Volver a Proyectos',
                 FEATURED: 'Destacado',
                 RETRY: 'Reintentar',
                 ITEMS: {
                     'ai-resume-matcher': {
                         NAME: 'Analizador de CV con IA',
-                        DESC: 'Sistema inteligente que empareja currículums con descripciones de trabajo usando IA y PLN'
+                        DESC: 'Sistema inteligente que empareja currículums con descripciones de trabajo usando IA y PLN',
+                        LONG_DESC: 'Una aplicación avanzada impulsada por IA que analiza currículums y descripciones de trabajo para proporcionar puntuaciones de coincidencia y recomendaciones inteligentes. Construido con Python, FastAPI y bibliotecas modernas de IA.'
                     },
                     'intelligent-support-bot': {
                         NAME: 'Bot de Soporte Inteligente',
-                        DESC: 'Sistema de atención al cliente basado en IA usando RAG (Generación Aumentada por Recuperación)'
+                        DESC: 'Sistema de atención al cliente basado en IA usando RAG (Generación Aumentada por Recuperación)',
+                        LONG_DESC: 'Un sofisticado bot de soporte al cliente que aprovecha la tecnología RAG para proporcionar respuestas precisas y conscientes del contexto. El sistema puede entender consultas de clientes y recuperar información relevante.'
                     },
                     'fraud-detection-system': {
                         NAME: 'Sistema de Detección de Fraude',
-                        DESC: 'Sistema de aprendizaje automático para la detección de fraude en tiempo real en transacciones financieras'
+                        DESC: 'Sistema de aprendizaje automático para la detección de fraude en tiempo real en transacciones financieras',
+                        LONG_DESC: 'Un sistema de detección de fraude listo para producción que analiza transacciones financieras en tiempo real para identificar fraudes potenciales utilizando modelos de aprendizaje automático.'
                     },
                     'portfolio-web': {
                         NAME: 'Plataforma de Portfolio Profesional',
-                        DESC: 'Aplicación de portfolio full-stack moderna con Angular y FastAPI'
+                        DESC: 'Aplicación de portfolio full-stack moderna con Angular y FastAPI',
+                        LONG_DESC: 'Una plataforma de portfolio completa y lista para producción que muestra las mejores prácticas del desarrollo web moderno. Cuenta con un backend FastAPI y un frontend Angular responsivo.'
                     }
                 }
             },
