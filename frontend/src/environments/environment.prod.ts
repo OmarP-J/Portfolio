@@ -3,6 +3,6 @@
  */
 export const environment = {
     production: true,
-    apiUrl: 'https://your-production-api.com/api',
+    apiUrl: 'https://portfolio-backend-production-3a01.up.railway.app/api',
     appTitle: 'Portfolio',
 };
