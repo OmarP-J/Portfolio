@@ -40,9 +40,17 @@ export class TranslationService {
                 PROFILE_DESC: "I'm a passionate full-stack software developer with a strong focus on building scalable, maintainable web applications.",
                 PROFILE_DESC_2: "My approach combines technical excellence with business understanding, ensuring that every line of code contributes to real user value and business objectives.",
                 SKILLS_TITLE: 'Technical Expertise',
-                FRONTEND: 'Frontend',
-                BACKEND: 'Backend',
-                TOOLS: 'Tools & Practices',
+                CAT_LANGUAGES: 'Programming Languages',
+                CAT_FRONTEND: 'Frontend',
+                CAT_BACKEND: 'Backend',
+                CAT_DATABASES: 'Databases',
+                CAT_ORMS: 'ORMs / Persistence',
+                CAT_TESTING: 'Testing / APIs / Integrations',
+                CAT_DEVOPS: 'DevOps / Tools',
+                CAT_OS: 'Operating Systems',
+                CAT_IDIOMAS: 'Languages',
+                LANG_ES: 'Spanish – Native',
+                LANG_EN: 'English – B1',
                 PHILOSOPHY_TITLE: 'Development Philosophy',
                 PHILOSOPHY: {
                     CLEAN_CODE: 'Clean Code',
@@ -62,6 +70,23 @@ export class TranslationService {
                     PROJECTS: 'Projects',
                     CERTIFICATES: 'Certificates'
                 },
+                CERTS: {
+                    INFOTEP_WEB: 'Web Page Design, CSS and Javascript',
+                    INFOTEP_OFFICE: 'Office Programs and Presentations Management',
+                    FCC_RESPONSIVE: 'Legacy Responsive Web Design V8',
+                    FCC_JS: 'Legacy JavaScript Algorithms and Data Structures V7',
+                    FCC_ENGLISH: 'A2 English for Developers',
+                    SLIM_PARADIGM: 'Programming Paradigm (Object Oriented)',
+                    SLIM_IMAGE: 'Web Image Manager',
+                    SLIM_ASSISTANT: 'Web Assistant',
+                    SLIM_OOP: 'Programmer (Object Oriented)',
+                    SLIM_RESPONSIVE: 'Responsive Web Site Developer',
+                    UDEMY_MYSQL: 'MySQL Intensive Course: Learn SQL from Zero to Expert',
+                    UDEMY_FULLSTACK: 'Django, Angular, Python, MySql, ChatGPT AI - App Full Stack!',
+                    UDEMY_DEVOPS: 'DevOps GitLab CI/CD: AWS, Docker, Java & Python Automation',
+                    UDEMY_PYTHON: 'Learn to Program with Python. Practicing with projects',
+                    UDEMY_JARVIS: 'Learn To Create JARVIS AI [Mark-I] Android App Using JAVA'
+                },
                 CERTIFICATES: {
                     ISSUED_BY: 'Issued by',
                     DATE: 'Issued on',
@@ -72,7 +97,25 @@ export class TranslationService {
                 NO_PROJECTS: 'No items found.',
                 VIEW_DETAILS: 'View Details',
                 FEATURED: 'Featured',
-                RETRY: 'Retry'
+                RETRY: 'Retry',
+                ITEMS: {
+                    'ai-resume-matcher': {
+                        NAME: 'AI Resume & Job Matcher',
+                        DESC: 'Intelligent system that matches resumes with job descriptions using AI and NLP'
+                    },
+                    'intelligent-support-bot': {
+                        NAME: 'Intelligent Customer Support Bot',
+                        DESC: 'AI-powered customer support system using RAG (Retrieval-Augmented Generation)'
+                    },
+                    'fraud-detection-system': {
+                        NAME: 'Fraud Detection System',
+                        DESC: 'Machine learning system for real-time fraud detection in financial transactions'
+                    },
+                    'portfolio-web': {
+                        NAME: 'Professional Portfolio Platform',
+                        DESC: 'Modern full-stack portfolio application with Angular and FastAPI'
+                    }
+                }
             },
             APPROACH: {
                 TITLE: 'My Approach',
@@ -116,7 +159,6 @@ export class TranslationService {
                 SENDING: 'Sending...',
                 SUCCESS: 'Message sent successfully!',
                 ERROR: 'Failed to send message.',
-                OTHER_WAYS: 'Other Ways to Connect',
                 REQUIRED: 'is required'
             },
             FOOTER: {
@@ -154,9 +196,17 @@ export class TranslationService {
                 PROFILE_DESC: 'Soy un apasionado desarrollador full-stack con un fuerte enfoque en construir aplicaciones web escalables y mantenibles.',
                 PROFILE_DESC_2: 'Mi enfoque combina la excelencia técnica con la comprensión del negocio, asegurando que cada línea de código contribuya al valor real del usuario y los objetivos comerciales.',
                 SKILLS_TITLE: 'Experiencia Técnica',
-                FRONTEND: 'Frontend',
-                BACKEND: 'Backend',
-                TOOLS: 'Herramientas y Prácticas',
+                CAT_LANGUAGES: 'Lenguajes de programación',
+                CAT_FRONTEND: 'Frontend',
+                CAT_BACKEND: 'Backend',
+                CAT_DATABASES: 'Bases de datos',
+                CAT_ORMS: 'ORMs / Persistencia',
+                CAT_TESTING: 'Testing / APIs / Integraciones',
+                CAT_DEVOPS: 'DevOps / Infra / Herramientas',
+                CAT_OS: 'Sistemas operativos',
+                CAT_IDIOMAS: 'Idiomas',
+                LANG_ES: 'Español – Nativo',
+                LANG_EN: 'Inglés – B1',
                 PHILOSOPHY_TITLE: 'Filosofía de Desarrollo',
                 PHILOSOPHY: {
                     CLEAN_CODE: 'Código Limpio',
@@ -176,6 +226,23 @@ export class TranslationService {
                     PROJECTS: 'Proyectos',
                     CERTIFICATES: 'Certificados'
                 },
+                CERTS: {
+                    INFOTEP_WEB: 'Diseño de Páginas Web, CSS y Javascript',
+                    INFOTEP_OFFICE: 'Manejo de Programas de Oficina y de Presentaciones',
+                    FCC_RESPONSIVE: 'Diseño Web Responsivo (Legacy) V8',
+                    FCC_JS: 'Algoritmos y Estructuras de Datos de JavaScript (Legacy) V7',
+                    FCC_ENGLISH: 'Inglés A2 para Desarrolladores',
+                    SLIM_PARADIGM: 'Paradigma de programación (orientado a objetos)',
+                    SLIM_IMAGE: 'Gestor de Imagen Web',
+                    SLIM_ASSISTANT: 'Asistente web',
+                    SLIM_OOP: 'Programador (orientado a objetos)',
+                    SLIM_RESPONSIVE: 'Desarrollador de sitios web responsivos',
+                    UDEMY_MYSQL: 'Curso Intensivo de MySQL: Aprende SQL desde Cero a Experto',
+                    UDEMY_FULLSTACK: 'Django, Angular, Python, MySql, ChatGPT IA - ¡App Full Stack!',
+                    UDEMY_DEVOPS: 'DevOps GitLab CI/CD: Automatización AWS, Docker, Java y Python',
+                    UDEMY_PYTHON: 'Aprende a Programar con Python. Practicando con proyectos',
+                    UDEMY_JARVIS: 'Aprende a Crear JARVIS AI [Mark-I] App Android Usando JAVA'
+                },
                 CERTIFICATES: {
                     ISSUED_BY: 'Emitido por',
                     DATE: 'Fecha de emisión',
@@ -186,7 +253,25 @@ export class TranslationService {
                 NO_PROJECTS: 'No se encontraron elementos.',
                 VIEW_DETAILS: 'Ver Detalles',
                 FEATURED: 'Destacado',
-                RETRY: 'Reintentar'
+                RETRY: 'Reintentar',
+                ITEMS: {
+                    'ai-resume-matcher': {
+                        NAME: 'Analizador de CV con IA',
+                        DESC: 'Sistema inteligente que empareja currículums con descripciones de trabajo usando IA y PLN'
+                    },
+                    'intelligent-support-bot': {
+                        NAME: 'Bot de Soporte Inteligente',
+                        DESC: 'Sistema de atención al cliente basado en IA usando RAG (Generación Aumentada por Recuperación)'
+                    },
+                    'fraud-detection-system': {
+                        NAME: 'Sistema de Detección de Fraude',
+                        DESC: 'Sistema de aprendizaje automático para la detección de fraude en tiempo real en transacciones financieras'
+                    },
+                    'portfolio-web': {
+                        NAME: 'Plataforma de Portfolio Profesional',
+                        DESC: 'Aplicación de portfolio full-stack moderna con Angular y FastAPI'
+                    }
+                }
             },
             APPROACH: {
                 TITLE: 'Mi Enfoque',
@@ -230,7 +315,6 @@ export class TranslationService {
                 SENDING: 'Enviando...',
                 SUCCESS: '¡Mensaje enviado con éxito!',
                 ERROR: 'Error al enviar el mensaje.',
-                OTHER_WAYS: 'Otras formas de conectar',
                 REQUIRED: 'es requerido'
             },
             FOOTER: {

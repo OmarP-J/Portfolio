@@ -34,7 +34,20 @@ import { TranslatePipe } from '@shared/pipes/translate.pipe';
           <div class="controls">
             <!-- Language Switcher -->
             <button class="control-btn lang-btn" (click)="toggleLanguage()" aria-label="Switch Language">
-              <span>{{ currentLang === 'en' ? 'ES' : 'EN' }}</span>
+              <div class="lang-content">
+                <!-- Spain Flag (for switching to ES) -->
+                <svg *ngIf="currentLang === 'en'" class="flag-icon" viewBox="0 0 36 36">
+                  <rect fill="#C60B1E" width="36" height="36"/>
+                  <rect fill="#FFC400" y="12" width="36" height="12"/>
+                </svg>
+                <!-- US Flag (for switching to EN) -->
+                <svg *ngIf="currentLang === 'es'" class="flag-icon" viewBox="0 0 36 36">
+                  <rect fill="#FFF" width="36" height="36"/>
+                  <path fill="#C8102E" d="M0 0h36v2.7H0zm0 5.4h36v2.7H0zm0 5.4h36v2.7H0zm0 5.4h36v2.7H0zm0 5.4h36v2.7H0zm0 5.4h36v2.7H0z"/>
+                  <rect fill="#012169" width="16" height="18.9"/>
+                </svg>
+                <span class="lang-text">{{ currentLang === 'en' ? 'ES' : 'EN' }}</span>
+              </div>
             </button>
 
             <!-- Theme Toggle -->
@@ -148,9 +161,30 @@ import { TranslatePipe } from '@shared/pipes/translate.pipe';
     }
 
     .lang-btn {
+      width: auto !important;
+      padding: 0 12px;
+      min-width: 70px;
+      border-radius: 100px !important;
+    }
+    
+    .lang-content {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .lang-text {
       font-size: 0.75rem;
       font-weight: 800;
       letter-spacing: 0.05em;
+    }
+    
+    .flag-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid var(--border);
     }
 
     .theme-icon {

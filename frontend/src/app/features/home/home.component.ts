@@ -15,7 +15,7 @@ import { TranslatePipe } from '@shared/pipes/translate.pipe';
       <section class="hero">
         <div class="hero-content">
           <h1 class="hero-title">
-            {{ 'HOME.HI' | translate }} <span class="highlight">Jaroly Omar</span>
+            {{ 'HOME.HI' | translate }} <span class="highlight">Omar Polanco</span>
           </h1>
           <h2 class="hero-subtitle">{{ 'HOME.SUBTITLE' | translate }}</h2>
           <p class="hero-description">
