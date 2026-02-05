@@ -34,14 +34,15 @@ class EmailService:
 
     def _execute_send(self, nombre: str, correo: str, asunto: str, mensaje: str):
         """
-        Blocking SMTP logic.
+        Blocking SMTP logic with professional HTML template.
         """
-        msg = MIMEMultipart()
+        msg = MIMEMultipart("alternative")
         msg["From"] = settings.EMAIL_USER
         msg["To"] = settings.CONTACT_EMAIL_TO
         msg["Subject"] = f"Nuevo contacto: {asunto}"
 
-        body = f"""
+        # Plain text version (fallback)
+        text_body = f"""
         Has recibido un nuevo mensaje de contacto:
         
         Nombre: {nombre}
@@ -51,7 +52,107 @@ class EmailService:
         Mensaje:
         {mensaje}
         """
-        msg.attach(MIMEText(body, "plain"))
+
+        # HTML version with modern design
+        html_body = f"""
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f5f5f5;">
+            <table role="presentation" style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td align="center" style="padding: 40px 20px;">
+                        <table role="presentation" style="max-width: 600px; width: 100%; background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); overflow: hidden;">
+                            <!-- Header -->
+                            <tr>
+                                <td style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); padding: 40px 30px; text-align: center;">
+                                    <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 600; letter-spacing: -0.5px;">
+                                        📬 Nuevo Mensaje de Contacto
+                                    </h1>
+                                </td>
+                            </tr>
+                            
+                            <!-- Content -->
+                            <tr>
+                                <td style="padding: 40px 30px;">
+                                    <p style="margin: 0 0 30px; color: #666; font-size: 15px; line-height: 1.6;">
+                                        Has recibido un nuevo mensaje desde tu portfolio:
+                                    </p>
+                                    
+                                    <!-- Info Card -->
+                                    <table role="presentation" style="width: 100%; border-collapse: collapse; margin-bottom: 30px;">
+                                        <tr>
+                                            <td style="padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
+                                                <table role="presentation" style="width: 100%; border-collapse: collapse;">
+                                                    <tr>
+                                                        <td style="padding: 8px 0;">
+                                                            <span style="display: inline-block; width: 80px; color: #888; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Nombre</span>
+                                                            <span style="color: #1a1a1a; font-size: 15px; font-weight: 500;">{nombre}</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding: 8px 0; border-top: 1px solid #e9ecef;">
+                                                            <span style="display: inline-block; width: 80px; color: #888; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Correo</span>
+                                                            <a href="mailto:{correo}" style="color: #007bff; font-size: 15px; text-decoration: none;">{correo}</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding: 8px 0; border-top: 1px solid #e9ecef;">
+                                                            <span style="display: inline-block; width: 80px; color: #888; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Asunto</span>
+                                                            <span style="color: #1a1a1a; font-size: 15px; font-weight: 500;">{asunto}</span>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    
+                                    <!-- Message -->
+                                    <div style="margin-bottom: 30px;">
+                                        <h3 style="margin: 0 0 15px; color: #1a1a1a; font-size: 16px; font-weight: 600;">Mensaje:</h3>
+                                        <div style="padding: 20px; background-color: #f8f9fa; border-left: 4px solid #007bff; border-radius: 4px;">
+                                            <p style="margin: 0; color: #333; font-size: 15px; line-height: 1.7; white-space: pre-wrap;">{mensaje}</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Action Button -->
+                                    <table role="presentation" style="width: 100%; border-collapse: collapse;">
+                                        <tr>
+                                            <td align="center" style="padding-top: 10px;">
+                                                <a href="mailto:{correo}?subject=Re: {asunto}" style="display: inline-block; padding: 14px 32px; background-color: #007bff; color: #ffffff; text-decoration: none; border-radius: 6px; font-size: 15px; font-weight: 600; transition: background-color 0.3s;">
+                                                    Responder
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            
+                            <!-- Footer -->
+                            <tr>
+                                <td style="padding: 30px; background-color: #f8f9fa; border-top: 1px solid #e9ecef; text-align: center;">
+                                    <p style="margin: 0; color: #888; font-size: 13px; line-height: 1.6;">
+                                        Este mensaje fue enviado desde el formulario de contacto de tu portfolio.<br>
+                                        <strong style="color: #666;">Portfolio - Jaroly Omar Polanco</strong>
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </body>
+        </html>
+        """
+
+        # Attach both versions
+        part1 = MIMEText(text_body, "plain")
+        part2 = MIMEText(html_body, "html")
+        msg.attach(part1)
+        msg.attach(part2)
 
         print(f"📧 Iniciando conexión SMTP con {settings.EMAIL_HOST}:{settings.EMAIL_PORT}...")
         with smtplib.SMTP(settings.EMAIL_HOST, settings.EMAIL_PORT, timeout=10) as server:
