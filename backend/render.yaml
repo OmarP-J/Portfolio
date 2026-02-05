@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: portfolio-backend
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: API_TITLE
+        value: Portfolio API
+      - key: API_VERSION
+        value: 1.0.0
+      - key: API_DESCRIPTION
+        value: Professional Portfolio Backend API
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: 10000
+      - key: DEBUG
+        value: False
+      - key: CORS_ORIGINS
+        sync: false
+      - key: EMAIL_HOST
+        value: smtp.gmail.com
+      - key: EMAIL_PORT
+        value: 587
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASSWORD
+        sync: false
+      - key: CONTACT_EMAIL_TO
+        sync: false
