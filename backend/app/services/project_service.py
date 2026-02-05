@@ -42,7 +42,7 @@ class ProjectService:
                 - RESTful API with comprehensive documentation
                 """,
                 technologies=["Python", "FastAPI", "NLP", "AI/ML", "Pydantic", "Docker"],
-                repository_url="https://github.com/yourusername/ai-resume-matcher",
+                repository_url="https://github.com/JarolyP/ai-resume-matcher",
                 featured=True,
                 created_at=datetime(2025, 12, 20),
             ),
@@ -63,7 +63,7 @@ class ProjectService:
                 - Analytics and insights dashboard
                 """,
                 technologies=["Python", "LangChain", "RAG", "Vector DB", "FastAPI", "React"],
-                repository_url="https://github.com/yourusername/ai-support-bot",
+                repository_url="https://github.com/JarolyP/ai-support-bot",
                 featured=True,
                 created_at=datetime(2025, 12, 20),
             ),
@@ -85,7 +85,7 @@ class ProjectService:
                 - High performance and scalability
                 """,
                 technologies=["Python", "Scikit-learn", "Pandas", "FastAPI", "PostgreSQL", "Redis"],
-                repository_url="https://github.com/yourusername/fraud-detection-system",
+                repository_url="https://github.com/JarolyP/fraud-detection-system",
                 featured=True,
                 created_at=datetime(2025, 12, 20),
             ),
@@ -107,8 +107,8 @@ class ProjectService:
                 - Professional UI/UX
                 """,
                 technologies=["Angular", "TypeScript", "Python", "FastAPI", "Pydantic", "CSS3"],
-                repository_url="https://github.com/yourusername/portfolio",
-                live_url="https://yourportfolio.com",
+                repository_url="https://github.com/JarolyP/Portfolio",
+                live_url="https://github.com/JarolyP/Portfolio",
                 featured=False,
                 created_at=datetime.now(),
             ),

@@ -33,13 +33,18 @@ import { TranslatePipe } from '@shared/pipes/translate.pipe';
           <!-- Controls (Theme & Lang) -->
           <div class="controls">
             <!-- Language Switcher -->
-            <button class="lang-btn" (click)="toggleLanguage()" aria-label="Switch Language">
-              {{ currentLang === 'en' ? 'ES' : 'EN' }}
+            <button class="control-btn lang-btn" (click)="toggleLanguage()" aria-label="Switch Language">
+              <span>{{ currentLang === 'en' ? 'ES' : 'EN' }}</span>
             </button>
 
             <!-- Theme Toggle -->
-            <button class="theme-btn" (click)="toggleTheme()" aria-label="Toggle Dark Mode">
-              <span class="icon">{{ isDark ? '☀️' : '🌙' }}</span>
+            <button class="control-btn theme-btn" (click)="toggleTheme()" aria-label="Toggle Dark Mode">
+              <svg *ngIf="!isDark" viewBox="0 0 24 24" fill="none" class="theme-icon">
+                <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <svg *ngIf="isDark" viewBox="0 0 24 24" fill="none" class="theme-icon">
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" fill="currentColor"/>
+              </svg>
             </button>
 
             <!-- Mobile Hamburger -->
@@ -53,22 +58,56 @@ import { TranslatePipe } from '@shared/pipes/translate.pipe';
   `,
   styles: [`
     .header {
-      background: var(--header-bg);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      height: var(--header-height);
+      background: var(--bg-header);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 1000;
-      backdrop-filter: blur(10px);
-      transition: background 0.3s ease;
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+      transition: all 0.5s ease;
     }
 
     .nav-container {
       max-width: 1200px;
+      width: 100%;
       margin: 0 auto;
-      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+
+    .logo-link {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: -0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--primary);
     }
 
     .right-section {
@@ -77,69 +116,60 @@ import { TranslatePipe } from '@shared/pipes/translate.pipe';
       gap: 2rem;
     }
 
-    .logo-link {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .logo-link:hover {
-      color: var(--primary-color);
-    }
-
     .controls {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.75rem;
+      background: var(--bg-card);
+      padding: 4px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
     }
 
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text-secondary);
-      font-weight: 500;
-      transition: color 0.3s ease;
+    .control-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
     }
 
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--primary-color);
+    .control-btn:hover {
+      background: var(--bg-body);
+      color: var(--primary);
+      transform: scale(1.05);
+    }
+
+    .lang-btn {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+    }
+
+    .theme-icon {
+      width: 20px;
+      height: 20px;
     }
 
     .contact-btn {
-      background: var(--primary-color);
+      background: var(--primary);
       color: white !important;
       padding: 0.6rem 1.5rem !important;
-      border-radius: 25px;
+      border-radius: 100px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     }
 
-    /* Buttons Styles */
-    .theme-btn, .lang-btn {
-      background: transparent;
-      border: 2px solid var(--border-color);
-      color: var(--text-primary);
-      cursor: pointer;
-      padding: 0.4rem 0.8rem;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      font-size: 0.9rem;
-    }
-
-    .theme-btn:hover, .lang-btn:hover {
-      background: var(--bg-secondary);
-      border-color: var(--primary-color);
+    .contact-btn:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     }
 
     .mobile-menu-toggle {
@@ -152,61 +182,53 @@ import { TranslatePipe } from '@shared/pipes/translate.pipe';
 
     .hamburger-icon {
       display: block;
-      width: 25px;
+      width: 22px;
       height: 2px;
-      background: var(--text-primary);
+      background: var(--text-main);
       position: relative;
-      transition: background 0.3s ease;
+      transition: all 0.3s ease;
     }
 
-    .hamburger-icon::before,
-    .hamburger-icon::after {
+    .hamburger-icon::before, .hamburger-icon::after {
       content: '';
       position: absolute;
-      width: 25px;
+      width: 22px;
       height: 2px;
-      background: var(--text-primary);
-      transition: transform 0.3s ease;
+      background: var(--text-main);
+      transition: all 0.3s ease;
     }
 
-    .hamburger-icon::before { top: -8px; }
-    .hamburger-icon::after { top: 8px; }
+    .hamburger-icon::before { top: -6px; }
+    .hamburger-icon::after { top: 6px; }
 
     .hamburger-icon.active { background: transparent; }
-    .hamburger-icon.active::before { transform: rotate(45deg) translate(5px, 5px); }
-    .hamburger-icon.active::after { transform: rotate(-45deg) translate(6px, -6px); }
+    .hamburger-icon.active::before { transform: rotate(45deg) translate(4px, 4px); }
+    .hamburger-icon.active::after { transform: rotate(-45deg) translate(4px, -4px); }
 
     @media (max-width: 900px) {
       .mobile-menu-toggle { display: block; }
-      
       .nav-links {
         position: absolute;
-        top: 100%;
+        top: var(--header-height);
         left: 0;
         right: 0;
-        background: var(--bg-primary);
+        background: var(--bg-card);
         flex-direction: column;
-        gap: 0;
         padding: 0;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border-bottom: 0 solid var(--border);
       }
-
       .nav-links.mobile-open {
-        max-height: 400px;
-        padding: 1rem 2rem;
+        max-height: 500px;
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+        border-bottom-width: 1px;
       }
-
-      .nav-links li {
-        padding: 0.8rem 0;
-        border-bottom: 1px solid var(--border-color);
-      }
-      
-      .right-section {
-        gap: 1rem;
-      }
+      .nav-links li { width: 100%; text-align: center; }
+      .nav-links a { display: block; padding: 1rem; font-size: 1.1rem; }
+      .right-section { gap: 1rem; }
     }
   `]
 })

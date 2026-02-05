@@ -1,26 +1,64 @@
 <div class="projects-container">
   <section class="projects-hero">
-    <h1>My Projects</h1>
-    <p class="subtitle">A showcase of my work and technical expertise</p>
+    <h1>{{ 'PROJECTS.TITLE' | translate }}</h1>
+    <p class="subtitle">{{ 'PROJECTS.SUBTITLE' | translate }}</p>
+
+    <!-- Tab Switcher -->
+    <div class="tab-switcher">
+      <button [class.active]="currentTab === 'projects'" (click)="setTab('projects')">
+        {{ 'PROJECTS.TABS.PROJECTS' | translate }}
+      </button>
+      <button [class.active]="currentTab === 'certificates'" (click)="setTab('certificates')">
+        {{ 'PROJECTS.TABS.CERTIFICATES' | translate }}
+      </button>
+    </div>
   </section>
-  
+
   <section class="projects-content">
     <div *ngIf="loading" class="loading">
       <div class="spinner"></div>
-      <p>Loading projects...</p>
+      <p>{{ 'PROJECTS.LOADING' | translate }}</p>
     </div>
-    
+
     <div *ngIf="error" class="error-message">
       <p>{{ error }}</p>
-      <button (click)="loadProjects()" class="retry-btn">Retry</button>
+      <button (click)="loadProjects()" class="retry-btn">{{ 'PROJECTS.RETRY' | translate }}</button>
     </div>
-    
-    <div *ngIf="!loading && !error && projects.length > 0" class="projects-grid">
-      <app-project-card *ngFor="let project of projects" [project]="project"></app-project-card>
-    </div>
-    
-    <div *ngIf="!loading && !error && projects.length === 0" class="no-projects">
-      <p>No projects found.</p>
-    </div>
+
+    <ng-container *ngIf="!loading && !error">
+      <!-- Projects Grid -->
+      <div *ngIf="currentTab === 'projects'" class="grid-container">
+        <div *ngIf="projects.length > 0" class="projects-grid">
+          <app-project-card *ngFor="let project of projects" [project]="project"></app-project-card>
+        </div>
+        <div *ngIf="projects.length === 0" class="no-items">
+          <p>{{ 'PROJECTS.NO_PROJECTS' | translate }}</p>
+        </div>
+      </div>
+
+      <!-- Certificates Grid -->
+      <div *ngIf="currentTab === 'certificates'" class="grid-container">
+        <div *ngIf="certificates.length > 0" class="certificates-grid">
+          <div *ngFor="let cert of certificates" class="certificate-card">
+            <div class="cert-icon">📜</div>
+            <div class="cert-info">
+              <h3>{{ cert.name }}</h3>
+              <p class="issuer"><strong>{{ 'PROJECTS.CERTIFICATES.ISSUED_BY' | translate }}:</strong> {{ cert.issuer }}
+              </p>
+              <p class="date"><strong>{{ 'PROJECTS.CERTIFICATES.DATE' | translate }}:</strong> {{ cert.date }}</p>
+              <p *ngIf="cert.credential_id" class="credential-id">
+                <strong>{{ 'PROJECTS.CERTIFICATES.ID' | translate }}:</strong> {{ cert.credential_id }}
+              </p>
+              <a *ngIf="cert.url" [href]="cert.url" class="btn-verify" target="_blank">
+                {{ 'PROJECTS.CERTIFICATES.VIEW' | translate }}
+              </a>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="certificates.length === 0" class="no-items">
+          <p>{{ 'PROJECTS.NO_PROJECTS' | translate }}</p>
+        </div>
+      </div>
+    </ng-container>
   </section>
 </div>

@@ -3,38 +3,36 @@
  */
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslationService } from '@core/services/translation.service';
+import { TranslatePipe } from '@shared/pipes/translate.pipe';
 
 @Component({
-    selector: 'app-about',
-    standalone: true,
-    imports: [CommonModule],
-    template: `
+  selector: 'app-about',
+  standalone: true,
+  imports: [CommonModule, TranslatePipe],
+  template: `
     <div class="about-container">
       <section class="about-hero">
-        <h1>About Me</h1>
-        <p class="subtitle">Full-Stack Developer | Clean Code Advocate | Problem Solver</p>
+        <h1>{{ 'ABOUT.TITLE' | translate }}</h1>
+        <p class="subtitle">{{ 'ABOUT.SUBTITLE' | translate }}</p>
       </section>
       
       <section class="content-section">
         <div class="profile-section">
-          <h2>Professional Profile</h2>
+          <h2>{{ 'ABOUT.PROFILE_TITLE' | translate }}</h2>
           <p>
-            I'm a passionate full-stack software developer with a strong focus on building
-            scalable, maintainable web applications. With expertise in modern technologies
-            like Angular, React, Python, and FastAPI, I create solutions that not only work
-            well but are also a pleasure to maintain and extend.
+            {{ 'ABOUT.PROFILE_DESC' | translate }}
           </p>
           <p>
-            My approach combines technical excellence with business understanding, ensuring
-            that every line of code contributes to real user value and business objectives.
+            {{ 'ABOUT.PROFILE_DESC_2' | translate }}
           </p>
         </div>
         
         <div class="skills-section">
-          <h2>Technical Expertise</h2>
+          <h2>{{ 'ABOUT.SKILLS_TITLE' | translate }}</h2>
           
           <div class="skill-category">
-            <h3>Frontend</h3>
+            <h3>{{ 'ABOUT.FRONTEND' | translate }}</h3>
             <div class="tech-grid">
               <span class="tech-item">Angular</span>
               <span class="tech-item">React</span>
@@ -46,7 +44,7 @@ import { CommonModule } from '@angular/common';
           </div>
           
           <div class="skill-category">
-            <h3>Backend</h3>
+            <h3>{{ 'ABOUT.BACKEND' | translate }}</h3>
             <div class="tech-grid">
               <span class="tech-item">Python</span>
               <span class="tech-item">FastAPI</span>
@@ -58,7 +56,7 @@ import { CommonModule } from '@angular/common';
           </div>
           
           <div class="skill-category">
-            <h3>Tools & Practices</h3>
+            <h3>{{ 'ABOUT.TOOLS' | translate }}</h3>
             <div class="tech-grid">
               <span class="tech-item">Git</span>
               <span class="tech-item">Docker</span>
@@ -71,37 +69,33 @@ import { CommonModule } from '@angular/common';
         </div>
         
         <div class="philosophy-section">
-          <h2>Development Philosophy</h2>
+          <h2>{{ 'ABOUT.PHILOSOPHY_TITLE' | translate }}</h2>
           <div class="philosophy-grid">
             <div class="philosophy-card">
-              <h4>Clean Code</h4>
+              <h4>{{ 'ABOUT.PHILOSOPHY.CLEAN_CODE' | translate }}</h4>
               <p>
-                Code should be readable, maintainable, and self-documenting.
-                I follow SOLID principles and design patterns.
+                {{ 'ABOUT.PHILOSOPHY.CLEAN_CODE_DESC' | translate }}
               </p>
             </div>
             
             <div class="philosophy-card">
-              <h4>User-Centric</h4>
+              <h4>{{ 'ABOUT.PHILOSOPHY.USER_CENTRIC' | translate }}</h4>
               <p>
-                Every technical decision should ultimately serve the end user
-                and deliver real business value.
+                {{ 'ABOUT.PHILOSOPHY.USER_CENTRIC_DESC' | translate }}
               </p>
             </div>
             
             <div class="philosophy-card">
-              <h4>Continuous Learning</h4>
+              <h4>{{ 'ABOUT.PHILOSOPHY.LEARNING' | translate }}</h4>
               <p>
-                Technology evolves rapidly. I stay current with industry trends
-                and continuously refine my skills.
+                {{ 'ABOUT.PHILOSOPHY.LEARNING_DESC' | translate }}
               </p>
             </div>
             
             <div class="philosophy-card">
-              <h4>Collaboration</h4>
+              <h4>{{ 'ABOUT.PHILOSOPHY.COLLABORATION' | translate }}</h4>
               <p>
-                Great software is built by great teams. Clear communication
-                and knowledge sharing are essential.
+                {{ 'ABOUT.PHILOSOPHY.COLLABORATION_DESC' | translate }}
               </p>
             </div>
           </div>
@@ -109,142 +103,158 @@ import { CommonModule } from '@angular/common';
       </section>
     </div>
   `,
-    styles: [`
+  styles: [`
     .about-container {
-      min-height: calc(100vh - 200px);
+      padding-bottom: 4rem;
     }
 
     .about-hero {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      padding: 4rem 2rem;
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+      padding: clamp(4rem, 8vh, 8rem) 2rem;
       text-align: center;
     }
 
     .about-hero h1 {
-      font-size: 3rem;
-      margin: 0 0 1rem 0;
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      color: var(--text-main);
+      margin-bottom: 1.2rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
     }
 
     .subtitle {
-      font-size: 1.3rem;
-      opacity: 0.95;
-      margin: 0;
+      font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+      font-weight: 500;
     }
 
     .content-section {
       max-width: 1000px;
       margin: 0 auto;
-      padding: 3rem 2rem;
+      padding: clamp(3rem, 6vh, 6rem) 2rem;
     }
 
     .profile-section {
-      margin-bottom: 3rem;
+      margin-bottom: 5rem;
     }
 
     .content-section h2 {
-      color: #2c3e50;
-      font-size: 2rem;
-      margin: 0 0 1.5rem 0;
-      padding-bottom: 0.8rem;
-      border-bottom: 3px solid #3498db;
-    }
-
-    .content-section p {
-      color: #555;
-      line-height: 1.8;
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
-
-    .skills-section {
-      margin-bottom: 3rem;
-    }
-
-    .skill-category {
+      color: var(--text-main);
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
       margin-bottom: 2rem;
-    }
-
-    .skill-category h3 {
-      color: #34495e;
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-    }
-
-    .tech-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
       gap: 1rem;
     }
 
+    .content-section h2::after {
+      content: '';
+      height: 2px;
+      flex: 1;
+      background: var(--border);
+    }
+
+    .content-section p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      font-size: clamp(1rem, 1.2vw, 1.15rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .skills-section {
+      margin-bottom: 5rem;
+    }
+
+    .skill-category {
+      margin-bottom: 3rem;
+    }
+
+    .skill-category h3 {
+      color: var(--text-main);
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .tech-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
     .tech-item {
-      background: #e8f4f8;
-      color: #2980b9;
-      padding: 0.8rem 1.2rem;
-      border-radius: 8px;
-      text-align: center;
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1.4rem;
+      border-radius: 12px;
+      font-size: 0.95rem;
       font-weight: 500;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .tech-item:hover {
-      background: #3498db;
-      color: white;
-      transform: translateY(-3px);
-      box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
     }
 
     .philosophy-section {
-      margin-top: 3rem;
+      margin-top: 5rem;
     }
 
     .philosophy-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
     }
 
     .philosophy-card {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      border-left: 4px solid #3498db;
-      transition: all 0.3s ease;
+      background: var(--bg-card);
+      padding: 2.5rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      transition: all 0.4s ease;
     }
 
     .philosophy-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      transform: translateY(-8px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow);
     }
 
     .philosophy-card h4 {
-      color: #2c3e50;
-      margin: 0 0 0.8rem 0;
-      font-size: 1.2rem;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+      font-weight: 700;
     }
 
     .philosophy-card p {
-      color: #666;
-      font-size: 0.95rem;
+      color: var(--text-muted);
+      font-size: 1rem;
       line-height: 1.6;
       margin: 0;
     }
 
-    @media (max-width: 768px) {
-      .about-hero h1 {
-        font-size: 2.2rem;
+    @media (max-width: 600px) {
+      .content-section {
+        padding: 3rem 1.5rem;
       }
-
-      .subtitle {
-        font-size: 1.1rem;
-      }
-
-      .tech-grid {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      .philosophy-grid {
+        grid-template-columns: 1fr;
       }
     }
   `]
 })
-export class AboutComponent { }
+export class AboutComponent {
+  constructor(private translationService: TranslationService) { }
+}

@@ -4,10 +4,10 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    imports: [RouterOutlet, HeaderComponent, FooterComponent],
-    template: `
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, HeaderComponent, FooterComponent],
+  template: `
     <div class="app-container">
       <app-header></app-header>
       <main class="main-content">
@@ -16,7 +16,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
       <app-footer></app-footer>
     </div>
   `,
-    styles: [`
+  styles: [`
     .app-container {
       display: flex;
       flex-direction: column;
@@ -25,10 +25,10 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 
     .main-content {
       flex: 1;
-      background: #f8f9fa;
+      background: var(--bg-body);
     }
   `]
 })
 export class AppComponent {
-    title = 'Portfolio';
+  title = 'Portfolio';
 }

@@ -15,7 +15,7 @@ import { TranslatePipe } from '@shared/pipes/translate.pipe';
       <section class="hero">
         <div class="hero-content">
           <h1 class="hero-title">
-            {{ 'HOME.HI' | translate }} <span class="highlight">Daniel</span>
+            {{ 'HOME.HI' | translate }} <span class="highlight">Jaroly Omar</span>
           </h1>
           <h2 class="hero-subtitle">{{ 'HOME.SUBTITLE' | translate }}</h2>
           <p class="hero-description">
@@ -70,152 +70,187 @@ import { TranslatePipe } from '@shared/pipes/translate.pipe';
   `,
   styles: [`
     .home-container {
-      /* Remove forced height to let content grow */
-      padding-bottom: 4rem;
+      padding-bottom: 6rem;
     }
 
     .hero {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 6rem 2rem;
+      padding: clamp(4rem, 10vh, 10rem) 2rem;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.2fr 0.8fr;
       gap: 4rem;
       align-items: center;
     }
 
     .hero-title {
-      font-size: 3.5rem;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
       color: var(--text-main);
-      margin-bottom: 1rem;
-      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      line-height: 1.05;
       font-weight: 800;
+      letter-spacing: -0.04em;
     }
 
     .highlight {
-      background: linear-gradient(120deg, var(--primary), #8e44ad);
+      background: linear-gradient(135deg, var(--primary) 0%, #8b5cf6 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      display: inline-block;
     }
 
     .hero-subtitle {
-      font-size: 1.8rem;
+      font-size: clamp(1.2rem, 2vw, 1.8rem);
       color: var(--text-secondary);
       font-weight: 500;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
+      letter-spacing: -0.01em;
     }
 
     .hero-description {
-      font-size: 1.2rem;
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
       color: var(--text-muted);
-      line-height: 1.8;
-      max-width: 500px;
-      margin-bottom: 2.5rem;
+      line-height: 1.7;
+      max-width: 540px;
+      margin-bottom: 3rem;
     }
 
     .cta-buttons {
       display: flex;
-      gap: 1rem;
+      flex-wrap: wrap;
+      gap: 1.2rem;
     }
 
     .btn {
-      padding: 1rem 2.5rem;
-      border-radius: 50px;
+      padding: 1rem 2.8rem;
+      border-radius: 12px;
       text-decoration: none;
       font-weight: 600;
-      transition: transform 0.2s, box-shadow 0.2s;
+      font-size: 1rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .btn-primary {
       background: var(--primary);
-      color: white;
-      border: 2px solid var(--primary);
+      color: #fff;
+      box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.3);
     }
     
     .btn-primary:hover {
       background: var(--primary-hover);
-      border-color: var(--primary-hover);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.2);
     }
 
     .btn-secondary {
-      background: transparent;
+      background: var(--bg-card);
       color: var(--text-main);
-      border: 2px solid var(--border);
+      border: 1px solid var(--border);
     }
 
     .btn-secondary:hover {
-      border-color: var(--text-main);
-      background: var(--bg-card);
-      transform: translateY(-3px);
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-4px);
+      background: var(--bg-body);
     }
 
-    /* Cards */
+    /* Cards Section */
     .highlights {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 2rem;
+      padding: 0 2rem 4rem;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
     }
 
     .highlight-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      padding: 2.5rem;
-      border-radius: 16px;
-      text-align: center;
-      transition: transform 0.3s, border-color 0.3s;
+      padding: 3.5rem 2.5rem;
+      border-radius: 24px;
+      text-align: left;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .highlight-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
     }
 
     .highlight-card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-12px);
       border-color: var(--primary);
       box-shadow: var(--shadow);
     }
 
+    .highlight-card:hover::before {
+      transform: scaleX(1);
+    }
+
     .icon {
-      font-size: 3rem;
-      margin-bottom: 1.5rem;
-      display: inline-block;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background: var(--bg-body);
+      border-radius: 16px;
     }
 
     .highlight-card h3 {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       color: var(--text-main);
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
 
     .highlight-card p {
       color: var(--text-secondary);
+      line-height: 1.6;
+      font-size: 1.05rem;
     }
 
-    /* Code Window - Keep dark always */
+    /* Code Window - Dark always, but themed borders */
     .code-window {
-      background: #1e1e1e; 
-      border-radius: 12px;
+      background: #0f172a; 
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+      box-shadow: 0 30px 60px -12px rgba(0,0,0,0.4);
       width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
     
     .window-header {
-      background: #2d2d2d;
-      padding: 12px 16px;
+      background: rgba(30, 41, 59, 0.5);
+      padding: 16px 20px;
       display: flex;
       align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .window-dots {
       display: flex;
-      gap: 8px;
+      gap: 10px;
     }
     
     .window-dots span {
-      width: 12px;
-      height: 12px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
     }
     
@@ -224,26 +259,44 @@ import { TranslatePipe } from '@shared/pipes/translate.pipe';
     .window-dots span:nth-child(3) { background: #27c93f; }
 
     .code-content {
-      padding: 24px;
-      font-family: 'Fira Code', monospace;
+      padding: 32px;
+      font-family: 'Fira Code', 'Monaco', monospace;
+      font-size: 0.95rem;
     }
     
     .keyword { color: #c678dd; }
     .class-name { color: #e5c07b; } 
     .string { color: #98c379; }
-    code { color: #abb2bf; }
+    code { color: #abb2bf; line-height: 1.8; }
 
-    @media (max-width: 768px) {
+    @media (max-width: 992px) {
       .hero {
         grid-template-columns: 1fr;
         text-align: center;
-        padding-top: 2rem;
+        gap: 5rem;
+      }
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
       }
       .cta-buttons {
         justify-content: center;
       }
       .hero-visual {
-        order: -1;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero {
+        padding: 4rem 1.5rem;
+      }
+      .cta-buttons .btn {
+        width: 100%;
+      }
+      .highlights {
+        padding: 0 1.5rem 2rem;
       }
     }
   `]

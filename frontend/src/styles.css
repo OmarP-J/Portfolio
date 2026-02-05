@@ -1,33 +1,30 @@
-/* Global Styles - Modern, Professional & Dark Mode Support */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
 :root {
-  /* Light Theme (Default) */
-  --bg-body: #f8f9fa;             /* Fondo general de la página */
-  --bg-card: #ffffff;             /* Fondo de tarjetas/contenedores */
-  --bg-header: rgba(255, 255, 255, 0.95);
-  --text-main: #2c3e50;
-  --text-secondary: #555555;
-  --text-muted: #666666;
-  --primary: #3498db;
-  --primary-hover: #2980b9;
-  --border: #e0e0e0;
-  --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  /* Light Theme - Modern & Professional */
+  --bg-body: #fdfdfd;
+  --bg-card: #ffffff;
+  --bg-header: rgba(253, 253, 253, 0.8);
+  --text-main: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --text-muted: #717171;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --border: #e5e7eb;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --header-height: 70px;
 }
 
 [data-theme="dark"] {
-  /* Dark Theme - High Contrast */
-  --bg-body: #121212;             /* Negro casi puro para fondo */
-  --bg-card: #1e1e1e;             /* Gris muy oscuro para tarjetas */
-  --bg-header: rgba(18, 18, 18, 0.95);
-  --text-main: #e0e0e0;           /* Blanco suave */
-  --text-secondary: #b0b0b0;
-  --text-muted: #888888;
-  --primary: #5dade2;             /* Azul más claro para que resalte */
-  --primary-hover: #3498db;
-  --border: #333333;
-  --shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  /* Dark Theme - Sophisticated Minimalism */
+  --bg-body: #0a0a0a;
+  --bg-card: #141414;
+  --bg-header: rgba(10, 10, 10, 0.8);
+  --text-main: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --primary: #3b82f6;
+  --primary-hover: #60a5fa;
+  --border: #262626;
+  --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
 }
 
 * {
@@ -37,12 +34,15 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background-color: var(--bg-body);
   color: var(--text-main);
   line-height: 1.6;
   min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+              color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-font-smoothing: antialiased;
 }
 
 app-root {

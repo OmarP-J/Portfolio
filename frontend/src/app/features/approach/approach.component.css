@@ -1,160 +1,152 @@
 .approach-container {
-  min-height: calc(100vh - 200px);
+  padding-bottom: 4rem;
 }
 
 .approach-hero {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 4rem 2rem;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  padding: clamp(4rem, 8vh, 8rem) 2rem;
   text-align: center;
 }
 
 .approach-hero h1 {
-  font-size: 3rem;
-  margin: 0 0 1rem 0;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  color: var(--text-main);
+  margin-bottom: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
 }
 
 .subtitle {
-  font-size: 1.3rem;
-  opacity: 0.95;
-  margin: 0;
+  font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 500;
 }
 
 .content-section {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 3rem 2rem;
+  padding: clamp(3rem, 6vh, 6rem) 2rem;
 }
 
 .intro {
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
+  text-align: center;
 }
 
 .content-section h2 {
-  color: #2c3e50;
-  font-size: 2rem;
-  margin: 0 0 1.5rem 0;
-  padding-bottom: 0.8rem;
-  border-bottom: 3px solid #3498db;
+  color: var(--text-main);
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  margin-bottom: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .intro p {
-  color: #555;
+  color: var(--text-secondary);
   line-height: 1.8;
-  font-size: 1.1rem;
-}
-
-.principles-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-bottom: 4rem;
-}
-
-.principle-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  border-left: 4px solid #3498db;
-}
-
-.principle-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-}
-
-.principle-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.principle-card h3 {
-  color: #2c3e50;
-  margin: 0 0 0.8rem 0;
-  font-size: 1.3rem;
-}
-
-.principle-card p {
-  color: #666;
-  line-height: 1.6;
-  margin: 0;
+  font-size: clamp(1rem, 1.25vw, 1.2rem);
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .workflow-section {
-  margin-bottom: 4rem;
+  margin-bottom: 6rem;
 }
 
 .workflow-steps {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
 }
 
 .step {
-  text-align: center;
-  padding: 1.5rem;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
+  text-align: left;
+  padding: 3rem 2rem;
+  background: var(--bg-card);
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
 }
 
 .step:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-8px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow);
 }
 
 .step-number {
-  background: #3498db;
+  background: var(--primary);
   color: white;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin: 0 auto 1rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
 }
 
 .step h4 {
-  color: #2c3e50;
-  margin: 0 0 0.5rem 0;
-  font-size: 1.2rem;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 700;
 }
 
 .step p {
-  color: #666;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .quality-section {
-  margin-top: 4rem;
+  margin-top: 6rem;
 }
 
 .quality-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
 }
 
 .quality-item {
-  background: #f8f9fa;
-  padding: 1.5rem;
-  border-radius: 10px;
+  background: var(--bg-card);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.quality-item:hover {
+  border-color: var(--primary);
 }
 
 .quality-item h4 {
-  color: #2c3e50;
-  margin: 0 0 1rem 0;
-  font-size: 1.2rem;
+  color: var(--text-main);
+  margin-bottom: 1.5rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.quality-item h4::before {
+  content: '';
+  width: 12px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 2px;
 }
 
 .quality-item ul {
@@ -164,26 +156,38 @@
 }
 
 .quality-item li {
-  color: #555;
-  padding: 0.4rem 0;
-  padding-left: 1.5rem;
+  color: var(--text-secondary);
+  padding: 0.6rem 0;
+  padding-left: 1.8rem;
   position: relative;
+  font-size: 0.95rem;
 }
 
 .quality-item li::before {
-  content: '✓';
-  color: #3498db;
+  content: '→';
+  color: var(--primary);
   font-weight: bold;
   position: absolute;
   left: 0;
+  opacity: 0.7;
 }
 
-@media (max-width: 768px) {
-  .approach-hero h1 {
-    font-size: 2.2rem;
+@media (max-width: 600px) {
+  .approach-hero {
+    padding: 4rem 1.5rem;
   }
-  
+
   .workflow-steps {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .quality-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .content-section {
+    padding: 3rem 1.5rem;
   }
 }
