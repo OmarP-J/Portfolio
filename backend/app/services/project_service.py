@@ -43,6 +43,12 @@ class ProjectService:
                 """,
                 technologies=["Python", "FastAPI", "NLP", "AI/ML", "Pydantic", "Docker"],
                 repository_url="https://github.com/JarolyP/ai-resume-matcher",
+                image_url="assets/projects/ai_resume.jpg",
+                gallery_images=[
+                    "https://placehold.co/800x450/1a1a1a/ffffff?text=Resume+Analysis",
+                    "https://placehold.co/800x450/2d2d2d/ffffff?text=Job+Matching",
+                    "https://placehold.co/800x450/404040/ffffff?text=Compatibility+Report"
+                ],
                 featured=True,
                 created_at=datetime(2025, 12, 20),
             ),
@@ -64,6 +70,12 @@ class ProjectService:
                 """,
                 technologies=["Python", "LangChain", "RAG", "Vector DB", "FastAPI", "React"],
                 repository_url="https://github.com/JarolyP/ai-support-bot",
+                image_url="assets/projects/support_bot.jpg",
+                gallery_images=[
+                    "https://placehold.co/800x450/1a1a1a/ffffff?text=Chat+Interface",
+                    "https://placehold.co/800x450/2d2d2d/ffffff?text=Knowledge+Base",
+                    "https://placehold.co/800x450/404040/ffffff?text=Analytics+Insights"
+                ],
                 featured=True,
                 created_at=datetime(2025, 12, 20),
             ),
@@ -86,6 +98,12 @@ class ProjectService:
                 """,
                 technologies=["Python", "Scikit-learn", "Pandas", "FastAPI", "PostgreSQL", "Redis"],
                 repository_url="https://github.com/JarolyP/fraud-detection-system",
+                image_url="assets/projects/fraud_detection.jpg",
+                gallery_images=[
+                    "https://placehold.co/800x450/1a1a1a/ffffff?text=Real-time+Detection",
+                    "https://placehold.co/800x450/2d2d2d/ffffff?text=Model+Performance",
+                    "https://placehold.co/800x450/404040/ffffff?text=Risk+Alerts"
+                ],
                 featured=True,
                 created_at=datetime(2025, 12, 20),
             ),
@@ -109,6 +127,12 @@ class ProjectService:
                 technologies=["Angular", "TypeScript", "Python", "FastAPI", "Pydantic", "CSS3"],
                 repository_url="https://github.com/JarolyP/Portfolio",
                 live_url="https://github.com/JarolyP/Portfolio",
+                image_url="assets/projects/portfolio.jpg",
+                gallery_images=[
+                    "https://placehold.co/800x450/1a1a1a/ffffff?text=Frontend+Overview",
+                    "https://placehold.co/800x450/2d2d2d/ffffff?text=Backend+API",
+                    "https://placehold.co/800x450/404040/ffffff?text=Responsive+Design"
+                ],
                 featured=False,
                 created_at=datetime.now(),
             ),

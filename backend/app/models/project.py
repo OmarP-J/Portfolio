@@ -20,6 +20,7 @@ class Project:
         repository_url: Optional[str] = None,
         live_url: Optional[str] = None,
         image_url: Optional[str] = None,
+        gallery_images: List[str] = None,
         featured: bool = False,
         created_at: Optional[datetime] = None,
     ):
@@ -31,6 +32,7 @@ class Project:
         self.repository_url = repository_url
         self.live_url = live_url
         self.image_url = image_url
+        self.gallery_images = gallery_images or []
         self.featured = featured
         self.created_at = created_at or datetime.now()
     
@@ -45,6 +47,7 @@ class Project:
             "repository_url": self.repository_url,
             "live_url": self.live_url,
             "image_url": self.image_url,
+            "gallery_images": self.gallery_images,
             "featured": self.featured,
             "created_at": self.created_at.isoformat() if self.created_at else None,
         }

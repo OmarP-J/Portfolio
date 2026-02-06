@@ -16,6 +16,7 @@ class ProjectBase(BaseModel):
     repository_url: Optional[str] = Field(None, description="GitHub repository URL")
     live_url: Optional[str] = Field(None, description="Live demo URL")
     image_url: Optional[str] = Field(None, description="Project image URL")
+    gallery_images: List[str] = Field(default_factory=list, description="List of gallery image URLs")
     featured: bool = Field(False, description="Whether project is featured")
 
 
