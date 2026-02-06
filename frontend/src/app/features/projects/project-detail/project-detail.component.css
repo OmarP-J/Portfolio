@@ -188,3 +188,188 @@
     justify-content: center;
   }
 }
+
+/* Chrome Web Store Style Carousel - Refined & Responsive */
+.webstore-carousel-wrapper {
+  margin: 2rem 0 4rem 0;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1100px;
+  position: relative;
+  gap: 1rem;
+}
+
+.carousel-viewport {
+  flex: 1;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #000;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border);
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.webstore-slide {
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.webstore-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* Professional look for varying screenshot sizes */
+  background: #000;
+}
+
+/* Navigation Buttons - Clean External Arrows */
+.carousel-nav-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: var(--shadow);
+  flex-shrink: 0;
+}
+
+.carousel-nav-btn:hover {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.1);
+  border-color: var(--primary);
+}
+
+.carousel-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Thumbnails Section */
+.carousel-thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 1.5rem;
+  padding: 0.5rem;
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  /* Hide scrollbar Firefox */
+}
+
+.carousel-thumbnails::-webkit-scrollbar {
+  display: none;
+  /* Hide scrollbar Chrome/Safari */
+}
+
+.thumbnail {
+  width: 100px;
+  aspect-ratio: 16 / 9;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+.thumbnail.active {
+  border-color: var(--primary);
+  opacity: 1;
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsive Handling */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .carousel-main-container {
+    padding: 0 1rem;
+  }
+
+  .carousel-nav-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .webstore-carousel-wrapper {
+    margin: 1rem 0 3rem 0;
+  }
+
+  .carousel-main-container {
+    gap: 0;
+    padding: 0;
+  }
+
+  /* Hide arrows on very small screens to maximize space, use dots or swipe */
+  .carousel-nav-btn {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+  }
+
+  .carousel-nav-btn.prev {
+    left: 10px;
+  }
+
+  .carousel-nav-btn.next {
+    right: 10px;
+  }
+
+  .carousel-viewport {
+    border-radius: 0;
+    /* Full width edge-to-edge feel */
+    border-left: none;
+    border-right: none;
+  }
+
+  .thumbnail {
+    width: 70px;
+  }
+}

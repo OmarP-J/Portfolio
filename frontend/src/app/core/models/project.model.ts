@@ -10,6 +10,7 @@ export interface Project {
     repository_url?: string;
     live_url?: string;
     image_url?: string;
+    gallery_images?: string[];
     featured: boolean;
     created_at: string;
 }

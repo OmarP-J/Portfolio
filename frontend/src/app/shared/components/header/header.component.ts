@@ -226,6 +226,7 @@ import { TranslatePipe } from '@shared/pipes/translate.pipe';
     .hamburger-icon::before, .hamburger-icon::after {
       content: '';
       position: absolute;
+      left: 0;
       width: 22px;
       height: 2px;
       background: var(--text-main);
