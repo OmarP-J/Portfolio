@@ -155,10 +155,26 @@ class EmailService:
         msg.attach(part2)
 
         print(f"📧 Iniciando conexión SMTP con {settings.EMAIL_HOST}:{settings.EMAIL_PORT}...")
-        with smtplib.SMTP(settings.EMAIL_HOST, settings.EMAIL_PORT, timeout=10) as server:
-            server.starttls()
-            print("🔐 TLS iniciado. Autenticando...")
-            server.login(settings.EMAIL_USER, settings.EMAIL_PASSWORD)
-            print("🔑 Autenticación exitosa. Enviando correo...")
-            server.send_message(msg)
-            print("✅ Correo enviado correctamente.")
+        try:
+            if settings.EMAIL_PORT == 465:
+                # Use SSL for port 465
+                context = __import__('ssl').create_default_context()
+                with smtplib.SMTP_SSL(settings.EMAIL_HOST, settings.EMAIL_PORT, timeout=15, context=context) as server:
+                    print("🔐 Conexión SSL establecida. Autenticando...")
+                    server.login(settings.EMAIL_USER, settings.EMAIL_PASSWORD)
+                    print("🔑 Autenticación exitosa. Enviando correo...")
+                    server.send_message(msg)
+                    print("✅ Correo enviado correctamente.")
+            else:
+                # Use STARTTLS for 587 or others
+                with smtplib.SMTP(settings.EMAIL_HOST, settings.EMAIL_PORT, timeout=15) as server:
+                    print("📡 Conexión establecida. Iniciando STARTTLS...")
+                    server.starttls()
+                    print("🔐 TLS iniciado. Autenticando...")
+                    server.login(settings.EMAIL_USER, settings.EMAIL_PASSWORD)
+                    print("🔑 Autenticación exitosa. Enviando correo...")
+                    server.send_message(msg)
+                    print("✅ Correo enviado correctamente.")
+        except Exception as e:
+            print(f"❌ Error en _execute_send: {str(e)}")
+            raise e

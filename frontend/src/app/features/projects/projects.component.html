@@ -15,59 +15,58 @@
   </section>
 
   <section class="projects-content">
-    <div *ngIf="loading" class="loading">
-      <div class="spinner"></div>
-      <p>{{ 'PROJECTS.LOADING' | translate }}</p>
-    </div>
-
-    <div *ngIf="error" class="error-message">
-      <p>{{ error }}</p>
-      <button (click)="loadProjects()" class="retry-btn">{{ 'PROJECTS.RETRY' | translate }}</button>
-    </div>
-
-    <ng-container *ngIf="!loading && !error">
-      <!-- Projects Grid -->
-      <div *ngIf="currentTab === 'projects'" class="grid-container">
-        <div *ngIf="projects.length > 0" class="projects-grid">
-          <app-project-card *ngFor="let project of projects" [project]="project"></app-project-card>
-        </div>
-        <div *ngIf="projects.length === 0" class="no-items">
-          <p>{{ 'PROJECTS.NO_PROJECTS' | translate }}</p>
-        </div>
+    <!-- Projects Section -->
+    <div *ngIf="currentTab === 'projects'" class="grid-container">
+      <div *ngIf="loading" class="loading">
+        <div class="spinner"></div>
+        <p>{{ 'PROJECTS.LOADING' | translate }}</p>
       </div>
 
-      <!-- Certificates Grid -->
-      <div *ngIf="currentTab === 'certificates'" class="grid-container">
-        <div *ngIf="certificates.length > 0" class="certificates-grid">
-          <div *ngFor="let cert of certificates" class="certificate-card" (click)="openCertificate(cert)">
-            <div class="cert-image-container" *ngIf="cert.image_url">
-              <img [src]="cert.image_url" [alt]="cert.name" class="cert-thumbnail">
-              <div class="cert-overlay">
-                <span class="zoom-icon">🔍</span>
-              </div>
+      <div *ngIf="error" class="error-message">
+        <p>{{ error }}</p>
+        <button (click)="loadProjects()" class="retry-btn">{{ 'PROJECTS.RETRY' | translate }}</button>
+      </div>
+
+      <div *ngIf="!loading && !error && projects.length > 0" class="projects-grid">
+        <app-project-card *ngFor="let project of projects" [project]="project"></app-project-card>
+      </div>
+
+      <div *ngIf="!loading && !error && projects.length === 0" class="no-items">
+        <p>{{ 'PROJECTS.NO_PROJECTS' | translate }}</p>
+      </div>
+    </div>
+
+    <!-- Certificates Grid -->
+    <div *ngIf="currentTab === 'certificates'" class="grid-container">
+      <div *ngIf="certificates.length > 0" class="certificates-grid">
+        <div *ngFor="let cert of certificates" class="certificate-card" (click)="openCertificate(cert)">
+          <div class="cert-image-container" *ngIf="cert.image_url">
+            <img [src]="cert.image_url" [alt]="cert.name" class="cert-thumbnail">
+            <div class="cert-overlay">
+              <span class="zoom-icon">🔍</span>
             </div>
-            <div class="cert-info">
-              <h3>{{ cert.name | translate }}</h3>
-              <p class="issuer"><strong>{{ 'PROJECTS.CERTIFICATES.ISSUED_BY' | translate }}:</strong> {{ cert.issuer }}
-              </p>
-              <p class="date"><strong>{{ 'PROJECTS.CERTIFICATES.DATE' | translate }}:</strong> {{ cert.date }}</p>
-              <p *ngIf="cert.credential_id" class="credential-id">
-                <strong>{{ 'PROJECTS.CERTIFICATES.ID' | translate }}:</strong> {{ cert.credential_id }}
-              </p>
-              <div class="cert-actions">
-                <a *ngIf="cert.url" [href]="cert.url" class="btn-verify" target="_blank"
-                  (click)="$event.stopPropagation()">
-                  {{ 'PROJECTS.CERTIFICATES.VIEW' | translate }}
-                </a>
-              </div>
+          </div>
+          <div class="cert-info">
+            <h3>{{ cert.name | translate }}</h3>
+            <p class="issuer"><strong>{{ 'PROJECTS.CERTIFICATES.ISSUED_BY' | translate }}:</strong> {{ cert.issuer }}
+            </p>
+            <p class="date"><strong>{{ 'PROJECTS.CERTIFICATES.DATE' | translate }}:</strong> {{ cert.date }}</p>
+            <p *ngIf="cert.credential_id" class="credential-id">
+              <strong>{{ 'PROJECTS.CERTIFICATES.ID' | translate }}:</strong> {{ cert.credential_id }}
+            </p>
+            <div class="cert-actions">
+              <a *ngIf="cert.url" [href]="cert.url" class="btn-verify" target="_blank"
+                (click)="$event.stopPropagation()">
+                {{ 'PROJECTS.CERTIFICATES.VIEW' | translate }}
+              </a>
             </div>
           </div>
         </div>
-        <div *ngIf="certificates.length === 0" class="no-items">
-          <p>{{ 'PROJECTS.NO_PROJECTS' | translate }}</p>
-        </div>
       </div>
-    </ng-container>
+      <div *ngIf="certificates.length === 0" class="no-items">
+        <p>{{ 'PROJECTS.NO_PROJECTS' | translate }}</p>
+      </div>
+    </div>
   </section>
 
   <!-- Lightbox Modal -->

@@ -22,7 +22,7 @@ class Settings(BaseSettings):
     DEBUG: bool = True
     
     # CORS Configuration
-    CORS_ORIGINS: str = "http://localhost:4200,http://localhost:8000"
+    CORS_ORIGINS: str = "*"
     
     # Email Configuration
     EMAIL_HOST: str = "smtp.gmail.com"

@@ -25,7 +25,6 @@ project_service = ProjectService()
 
 @router.get(
     "",
-    response_model=ProjectListResponse,
     summary="Get all projects",
     description="Retrieve a list of all portfolio projects",
 )
@@ -36,9 +35,10 @@ async def get_projects():
     Returns a list of all projects with their basic information.
     """
     projects = project_service.get_all_projects()
+    
     return {
         "success": True,
-        "data": [ProjectResponse(**p.to_dict()) for p in projects],
+        "data": [p.to_dict() for p in projects],
         "total": len(projects),
     }
 
