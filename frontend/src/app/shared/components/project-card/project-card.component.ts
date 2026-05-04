@@ -26,7 +26,10 @@ import { TranslatePipe } from '@shared/pipes/translate.pipe';
         <p class="project-description">{{ 'PROJECTS.ITEMS.' + project.id + '.DESC' | translate }}</p>
         
         <div class="tech-stack">
-          <span class="tech-tag" *ngFor="let tech of project.technologies">{{ tech }}</span>
+          <span class="tech-tag" *ngFor="let tech of project.technologies">
+            <i [class]="getTechIcon(tech)" *ngIf="getTechIcon(tech)"></i>
+            {{ tech }}
+          </span>
         </div>
       </div>
       
@@ -133,6 +136,9 @@ import { TranslatePipe } from '@shared/pipes/translate.pipe';
       font-size: 0.75rem;
       font-weight: 600;
       border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
     }
 
     .card-footer {
@@ -160,4 +166,32 @@ import { TranslatePipe } from '@shared/pipes/translate.pipe';
 })
 export class ProjectCardComponent {
   @Input() project!: Project;
+
+  getTechIcon(techName: string): string {
+    if (!techName) return '';
+    const tech = techName.toLowerCase();
+    
+    if (tech.includes('angular')) return 'devicon-angularjs-plain colored';
+    if (tech.includes('spring')) return 'devicon-spring-plain colored';
+    if (tech.includes('java') && !tech.includes('javascript')) return 'devicon-java-plain colored';
+    if (tech.includes('mysql')) return 'devicon-mysql-plain colored';
+    if (tech.includes('postgresql')) return 'devicon-postgresql-plain colored';
+    if (tech.includes('sql server')) return 'devicon-microsoftsqlserver-plain colored';
+    if (tech.includes('python')) return 'devicon-python-plain colored';
+    if (tech.includes('fastapi')) return 'devicon-fastapi-plain colored';
+    if (tech.includes('css')) return 'devicon-css3-plain colored';
+    if (tech.includes('html')) return 'devicon-html5-plain colored';
+    if (tech.includes('typescript')) return 'devicon-typescript-plain colored';
+    if (tech.includes('docker')) return 'devicon-docker-plain colored';
+    if (tech.includes('pandas')) return 'devicon-pandas-plain colored';
+    if (tech.includes('redis')) return 'devicon-redis-plain colored';
+    if (tech.includes('c#')) return 'devicon-csharp-plain colored';
+    if (tech.includes('.net')) return 'devicon-dotnetcore-plain colored';
+    if (tech.includes('javascript')) return 'devicon-javascript-plain colored';
+    if (tech.includes('react')) return 'devicon-react-original colored';
+    if (tech.includes('node')) return 'devicon-nodejs-plain colored';
+    if (tech.includes('mongo')) return 'devicon-mongodb-plain colored';
+    
+    return '';
+  }
 }

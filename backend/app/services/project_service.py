@@ -42,7 +42,7 @@ class ProjectService:
                 - RESTful API with comprehensive documentation
                 """,
                 technologies=["Python", "FastAPI", "NLP", "AI/ML", "Pydantic", "Docker"],
-                repository_url="https://github.com/JarolyP/ai-resume-matcher",
+                repository_url="https://github.com/OmarP-J/ai-resume-matcher",
                 image_url="assets/projects/ai_resume.jpg",
                 gallery_images=[
                     "https://placehold.co/800x450/1a1a1a/ffffff?text=Resume+Analysis",
@@ -53,31 +53,40 @@ class ProjectService:
                 created_at=datetime(2025, 12, 20),
             ),
             Project(
-                id="intelligent-support-bot",
-                name="Intelligent Customer Support Bot",
-                description="AI-powered customer support system using RAG (Retrieval-Augmented Generation)",
-                long_description="""
-                A sophisticated customer support bot that leverages RAG technology to provide accurate,
-                context-aware responses. The system can understand customer queries, retrieve relevant
-                information from a knowledge base, and generate helpful responses.
-                
-                Key Features:
-                - RAG-based question answering
-                - Knowledge base management
-                - Context-aware conversations
-                - Multi-language support
-                - Analytics and insights dashboard
-                """,
-                technologies=["Python", "LangChain", "RAG", "Vector DB", "FastAPI", "React"],
-                repository_url="https://github.com/JarolyP/ai-support-bot",
-                image_url="assets/projects/support_bot.jpg",
-                gallery_images=[
-                    "https://placehold.co/800x450/1a1a1a/ffffff?text=Chat+Interface",
-                    "https://placehold.co/800x450/2d2d2d/ffffff?text=Knowledge+Base",
-                    "https://placehold.co/800x450/404040/ffffff?text=Analytics+Insights"
-                ],
-                featured=True,
-                created_at=datetime(2025, 12, 20),
+            id="ecommerce-platform",
+            name="Full-Stack E-Commerce Platform",
+            description="Scalable e-commerce platform built with Spring Boot and Angular",
+            long_description="""
+            A complete e-commerce platform developed using a decoupled client-server architecture,
+            delivering a secure and scalable online shopping experience.
+
+            The backend is built with Java 21 and Spring Boot, exposing a robust REST API that handles
+            business logic, authentication, and data persistence. It uses JWT-based authentication
+            to ensure secure user sessions and role-based access control.
+
+            The frontend is developed with Angular 19 as a dynamic Single Page Application (SPA),
+            providing a smooth and responsive user experience. It integrates Angular Material for
+            modern UI components and is prepared for Server-Side Rendering (SSR) to enhance performance.
+
+            Key Features:
+            - Secure authentication with JWT
+            - RESTful API architecture
+            - Product and category management
+            - Shopping cart and order workflow
+            - Multi-database support (MySQL, PostgreSQL, SQL Server)
+            - Responsive UI with Angular Material
+            - Scalable client-server architecture
+            """,
+            technologies=[ "Java 21", "Spring Boot", "Spring Security", "JWT", "Angular 19", "Angular Material", "REST API", "MySQL", "PostgreSQL", "SQL Server" ],
+            repository_url="https://github.com/OmarP-J/E-Commerce-SpringBoot",
+            image_url="assets/projects/ecommerce.jpg",
+            gallery_images=[
+                "https://placehold.co/800x450/1a1a1a/ffffff?text=Home+Page",
+                "https://placehold.co/800x450/2d2d2d/ffffff?text=Product+Management",
+                "https://placehold.co/800x450/404040/ffffff?text=Shopping+Cart"
+            ],
+            featured=True,
+            created_at=datetime(2026, 1, 15),
             ),
             Project(
                 id="fraud-detection-system",
@@ -97,7 +106,7 @@ class ProjectService:
                 - High performance and scalability
                 """,
                 technologies=["Python", "Scikit-learn", "Pandas", "FastAPI", "PostgreSQL", "Redis"],
-                repository_url="https://github.com/JarolyP/fraud-detection-system",
+                repository_url="https://github.com/OmarP-J/fraud-detection-system",
                 image_url="assets/projects/fraud_detection.jpg",
                 gallery_images=[
                     "https://placehold.co/800x450/1a1a1a/ffffff?text=Real-time+Detection",
@@ -125,8 +134,8 @@ class ProjectService:
                 - Professional UI/UX
                 """,
                 technologies=["Angular", "TypeScript", "Python", "FastAPI", "Pydantic", "CSS3"],
-                repository_url="https://github.com/JarolyP/Portfolio",
-                live_url="https://github.com/JarolyP/Portfolio",
+                repository_url="https://github.com/OmarP-J/Portfolio",
+                live_url="https://github.com/OmarP-J/Portfolio",
                 image_url="assets/projects/portfolio.jpg",
                 gallery_images=[
                     "https://placehold.co/800x450/1a1a1a/ffffff?text=Frontend+Overview",

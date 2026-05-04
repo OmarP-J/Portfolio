@@ -98,10 +98,30 @@ export class ProjectDetailComponent implements OnInit {
     }
 
     getTechIcon(techName: string): string {
-        for (const category of TECH_STACK) {
-            const item = category.items.find(i => i.name.toLowerCase() === techName.toLowerCase());
-            if (item) return item.iconClass;
-        }
+        if (!techName) return '';
+        const tech = techName.toLowerCase();
+        
+        if (tech.includes('angular')) return 'devicon-angularjs-plain colored';
+        if (tech.includes('spring')) return 'devicon-spring-plain colored';
+        if (tech.includes('java') && !tech.includes('javascript')) return 'devicon-java-plain colored';
+        if (tech.includes('mysql')) return 'devicon-mysql-plain colored';
+        if (tech.includes('postgresql')) return 'devicon-postgresql-plain colored';
+        if (tech.includes('sql server')) return 'devicon-microsoftsqlserver-plain colored';
+        if (tech.includes('python')) return 'devicon-python-plain colored';
+        if (tech.includes('fastapi')) return 'devicon-fastapi-plain colored';
+        if (tech.includes('css')) return 'devicon-css3-plain colored';
+        if (tech.includes('html')) return 'devicon-html5-plain colored';
+        if (tech.includes('typescript')) return 'devicon-typescript-plain colored';
+        if (tech.includes('docker')) return 'devicon-docker-plain colored';
+        if (tech.includes('pandas')) return 'devicon-pandas-plain colored';
+        if (tech.includes('redis')) return 'devicon-redis-plain colored';
+        if (tech.includes('c#')) return 'devicon-csharp-plain colored';
+        if (tech.includes('.net')) return 'devicon-dotnetcore-plain colored';
+        if (tech.includes('javascript')) return 'devicon-javascript-plain colored';
+        if (tech.includes('react')) return 'devicon-react-original colored';
+        if (tech.includes('node')) return 'devicon-nodejs-plain colored';
+        if (tech.includes('mongo')) return 'devicon-mongodb-plain colored';
+        
         return '';
     }
 }

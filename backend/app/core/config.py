@@ -27,8 +27,8 @@ class Settings(BaseSettings):
     # Email Configuration
     EMAIL_HOST: str = "smtp.gmail.com"
     EMAIL_PORT: int = 587
-    EMAIL_USER: str = ""
-    EMAIL_PASSWORD: str = ""
+    EMAIL_USER: str = "j.omar.polanco.j@gmail.com"
+    EMAIL_PASSWORD: str = "J@r0ly0123"
     CONTACT_EMAIL_TO: str = "j.omar.polanco.j@gmail.com"
     
     @field_validator("CORS_ORIGINS")
