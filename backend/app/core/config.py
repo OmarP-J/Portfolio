@@ -30,6 +30,7 @@ class Settings(BaseSettings):
     EMAIL_USER: str = "j.omar.polanco.j@gmail.com"
     EMAIL_PASSWORD: str = "J@r0ly0123"
     CONTACT_EMAIL_TO: str = "j.omar.polanco.j@gmail.com"
+    RESEND_API_KEY: str = ""
     
     @field_validator("CORS_ORIGINS")
     @classmethod
