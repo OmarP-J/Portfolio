@@ -3,6 +3,6 @@
  */
 export const environment = {
     production: true,
-    apiUrl: 'https://magnificent-bravery-production-3d1e.up.railway.app/api',
+    apiUrl: 'portfolio-production-3a9c.up.railway.app',
     appTitle: 'Portfolio',
 };
