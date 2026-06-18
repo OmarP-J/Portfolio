@@ -30,23 +30,23 @@ import { TranslatePipe } from '@shared/pipes/translate.pipe';
             <li><a routerLink="/contact" routerLinkActive="active" class="contact-btn" (click)="closeMobileMenu()">{{ 'NAV.CONTACT' | translate }}</a></li>
           </ul>
 
-          <!-- Controls (Theme & Lang) -->
+          <!-- Controls (Theme & Language) -->
           <div class="controls">
             <!-- Language Switcher -->
             <button class="control-btn lang-btn" (click)="toggleLanguage()" aria-label="Switch Language">
               <div class="lang-content">
-                <!-- Spain Flag (for switching to ES) -->
-                <svg *ngIf="currentLang === 'en'" class="flag-icon" viewBox="0 0 36 36">
+                <!-- Spain Flag (for switching to EN) -->
+                <svg *ngIf="currentLang === 'es'" class="flag-icon" viewBox="0 0 36 36">
                   <rect fill="#C60B1E" width="36" height="36"/>
                   <rect fill="#FFC400" y="12" width="36" height="12"/>
                 </svg>
                 <!-- US Flag (for switching to EN) -->
-                <svg *ngIf="currentLang === 'es'" class="flag-icon" viewBox="0 0 36 36">
+                <svg *ngIf="currentLang === 'en'" class="flag-icon" viewBox="0 0 36 36">
                   <rect fill="#FFF" width="36" height="36"/>
                   <path fill="#C8102E" d="M0 0h36v2.7H0zm0 5.4h36v2.7H0zm0 5.4h36v2.7H0zm0 5.4h36v2.7H0zm0 5.4h36v2.7H0zm0 5.4h36v2.7H0z"/>
                   <rect fill="#012169" width="16" height="18.9"/>
                 </svg>
-                <span class="lang-text">{{ currentLang === 'en' ? 'ES' : 'EN' }}</span>
+                <span class="lang-text">{{ currentLang === 'en' ? 'ENG' : 'ESP' }}</span>
               </div>
             </button>
 
