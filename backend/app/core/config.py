@@ -25,10 +25,12 @@ class Settings(BaseSettings):
     CORS_ORIGINS: str = "*"
     
     # Email Configuration
+    # Secrets are never written here: set them as environment variables
+    # (in .env locally, or in the hosting dashboard in production).
     EMAIL_HOST: str = "smtp.gmail.com"
     EMAIL_PORT: int = 587
-    EMAIL_USER: str = "j.omar.polanco.j@gmail.com"
-    EMAIL_PASSWORD: str = "J@r0ly0123"
+    EMAIL_USER: str = ""
+    EMAIL_PASSWORD: str = ""
     CONTACT_EMAIL_TO: str = "j.omar.polanco.j@gmail.com"
     RESEND_API_KEY: str = ""
     
