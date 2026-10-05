@@ -6,6 +6,15 @@
   color: var(--accent);
 }
 
+.cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  margin-top: 2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+}
+
 /* Stack, año y enlaces: apilados en celular, en 3 columnas desde tablet */
 .meta {
   display: grid;
@@ -46,7 +55,8 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  background: var(--line);
+  background: var(--surface);
+  border-radius: var(--radius);
 }
 
 .gallery-controls {

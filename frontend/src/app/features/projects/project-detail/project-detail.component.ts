@@ -19,6 +19,7 @@ export class ProjectDetailComponent implements OnInit {
     project: Project | null = null;
     loading = true;
     error = false;
+    coverMissing = false;
     currentImageIndex = 0;
 
     constructor(

@@ -29,6 +29,10 @@
   vertical-align: super;
 }
 
+.projects-grid {
+  padding-top: 2.5rem;
+}
+
 /* ---------- Certificados: 1, 2 o 3 columnas ---------- */
 
 .cert-grid {
@@ -49,6 +53,7 @@
   object-fit: cover;
   object-position: top;
   border: 1px solid var(--line);
+  border-radius: var(--radius);
 }
 
 .cert-name {

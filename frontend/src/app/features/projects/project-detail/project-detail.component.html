@@ -13,6 +13,10 @@
       <p>{{ 'PROJECTS.ITEMS.' + project.id + '.DESC' | translate }}</p>
     </header>
 
+    <!-- Captura principal: si el archivo no existe todavía, no se muestra nada -->
+    <img *ngIf="project.image_url && !coverMissing" class="cover" [src]="project.image_url"
+      [alt]="'PROJECTS.ITEMS.' + project.id + '.NAME' | translate" (error)="coverMissing = true">
+
     <dl class="meta">
       <div>
         <dt class="eyebrow">{{ 'PROJECTS.STACK' | translate }}</dt>

@@ -1,6 +1,6 @@
 /**
  * Theme Service
- * Manages light/dark mode
+ * Manages light/dark mode. Dark is the default; the visitor's choice is saved.
  */
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
@@ -11,18 +11,12 @@ export type Theme = 'light' | 'dark';
     providedIn: 'root'
 })
 export class ThemeService {
-    private currentTheme = new BehaviorSubject<Theme>('light');
+    private currentTheme = new BehaviorSubject<Theme>('dark');
     public currentTheme$ = this.currentTheme.asObservable();
 
     constructor() {
-        // Check system preference first, then local storage
-        const savedTheme = localStorage.getItem('theme') as Theme;
-
-        if (savedTheme) {
-            this.setTheme(savedTheme);
-        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            this.setTheme('dark');
-        }
+        const savedTheme = localStorage.getItem('theme') as Theme | null;
+        this.setTheme(savedTheme ?? 'dark');
     }
 
     toggleTheme() {

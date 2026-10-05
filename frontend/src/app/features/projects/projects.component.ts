@@ -7,13 +7,13 @@ import { ProjectService } from '@core/services/project.service';
 import { Project } from '@core/models/project.model';
 import { Certificate } from '@core/models/certificate.model';
 import { TranslatePipe } from '@shared/pipes/translate.pipe';
-import { ProjectRowComponent } from '@shared/components/project-row/project-row.component';
+import { ProjectCardComponent } from '@shared/components/project-card/project-card.component';
 import { CERTIFICATES } from './certificates.data';
 
 @Component({
     selector: 'app-projects',
     standalone: true,
-    imports: [CommonModule, ProjectRowComponent, TranslatePipe],
+    imports: [CommonModule, ProjectCardComponent, TranslatePipe],
     templateUrl: './projects.component.html',
     styleUrl: './projects.component.css'
 })

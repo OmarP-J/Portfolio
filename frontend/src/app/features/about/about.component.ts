@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '@shared/pipes/translate.pipe';
 import { TECH_STACK } from './tech-stack.constants';
+import { TIMELINE } from './timeline.data';
 
 @Component({
   selector: 'app-about',
@@ -15,6 +16,7 @@ import { TECH_STACK } from './tech-stack.constants';
 })
 export class AboutComponent {
   techStack = TECH_STACK;
+  timeline = TIMELINE;
 
   principles = [
     { titleKey: 'ABOUT.PHILOSOPHY.CLEAN_CODE', descKey: 'ABOUT.PHILOSOPHY.CLEAN_CODE_DESC' },

@@ -7,6 +7,45 @@
   margin-top: 1rem;
 }
 
+/* Línea de tiempo: una línea vertical con un punto dorado por cada año */
+.timeline li {
+  position: relative;
+  display: grid;
+  gap: 0.25rem;
+  padding: 0 0 2.25rem 1.75rem;
+  border-left: 1px solid var(--line);
+}
+
+.timeline li:last-child {
+  padding-bottom: 0;
+}
+
+.timeline li::before {
+  content: '';
+  position: absolute;
+  top: 0.4rem;
+  left: -5px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.timeline-year {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+
+.timeline h3 {
+  font-size: 1.375rem;
+}
+
+.timeline p {
+  max-width: 40rem;
+  color: var(--text-muted);
+}
+
 /* Stack: categoría arriba y tecnologías debajo; desde tablet, en dos columnas */
 .stack-row {
   display: grid;

@@ -27,11 +27,27 @@ export class TranslationService {
                 SWITCH_THEME: 'Switch light / dark theme'
             },
             HOME: {
-                EYEBROW: 'Full-stack developer · Santo Domingo',
-                TITLE: 'I build web apps, from the database to the interface.',
-                INTRO: 'I mostly work with Angular on the front end and Spring Boot or FastAPI on the back end.',
+                AVAILABLE: 'Open to on-site roles · Santo Domingo',
+                TAGLINE: 'Builds web apps end to end.',
+                INTRO: 'Full-stack developer. I mostly work with Angular on the front end and Spring Boot or FastAPI on the back end.',
                 VIEW_WORK: 'See projects',
                 CONTACT: 'Get in touch',
+                STATS: {
+                    PROJECTS: 'Projects',
+                    CERTIFICATES: 'Certificates',
+                    SINCE: 'Coding since'
+                },
+                SERVICES_TITLE: 'What I do',
+                SERVICES: {
+                    FRONTEND: 'Front end',
+                    FRONTEND_DESC: 'Interfaces that work on phones, tablets and laptops.',
+                    BACKEND: 'Back end',
+                    BACKEND_DESC: 'The business logic and the APIs the front end talks to.',
+                    APIS: 'APIs & security',
+                    APIS_DESC: 'REST APIs with login, roles and input validation.',
+                    DATABASES: 'Databases',
+                    DATABASES_DESC: 'Data models and queries that hold up as the data grows.'
+                },
                 SELECTED: 'Selected projects',
                 ALL_PROJECTS: 'All projects'
             },
@@ -42,6 +58,17 @@ export class TranslationService {
                 PROFILE_TITLE: 'Profile',
                 PROFILE_DESC: "I'm a full-stack developer. I build complete web applications: the REST API, the database and the interface people actually use.",
                 PROFILE_DESC_2: 'I like code that someone else can open and understand, and I prefer simple solutions over clever ones. I keep learning through courses and side projects; you can see them in the certificates section.',
+                TIMELINE_TITLE: 'Timeline',
+                TIMELINE: {
+                    Y2026: 'Full-stack e-commerce and this portfolio',
+                    Y2026_DESC: 'An online store with Spring Boot and Angular, and this site with Angular and FastAPI.',
+                    Y2025: 'Back end, databases and DevOps',
+                    Y2025_DESC: 'Udemy courses on Python, MySQL, Django + Angular and GitLab CI/CD. First side projects: the resume matcher and the fraud detector.',
+                    Y2023: 'Object-oriented programming and responsive design',
+                    Y2023_DESC: 'freeCodeCamp certifications (responsive web design, JavaScript algorithms) and Fundación Carlos Slim courses (object-oriented programming, responsive sites).',
+                    Y2022: 'First web development courses',
+                    Y2022_DESC: 'INFOTEP: web page design with HTML, CSS and JavaScript.'
+                },
                 SKILLS_TITLE: 'Stack',
                 CAT_LANGUAGES: 'Languages',
                 CAT_FRONTEND: 'Front end',
@@ -200,11 +227,27 @@ export class TranslationService {
                 SWITCH_THEME: 'Cambiar tema claro / oscuro'
             },
             HOME: {
-                EYEBROW: 'Desarrollador full-stack · Santo Domingo',
-                TITLE: 'Construyo aplicaciones web, desde la base de datos hasta la interfaz.',
-                INTRO: 'Trabajo sobre todo con Angular en el frontend y con Spring Boot o FastAPI en el backend.',
+                AVAILABLE: 'Disponible para trabajo presencial · Santo Domingo',
+                TAGLINE: 'Construye aplicaciones web de punta a punta.',
+                INTRO: 'Desarrollador full-stack. Trabajo sobre todo con Angular en el frontend y con Spring Boot o FastAPI en el backend.',
                 VIEW_WORK: 'Ver proyectos',
                 CONTACT: 'Escríbeme',
+                STATS: {
+                    PROJECTS: 'Proyectos',
+                    CERTIFICATES: 'Certificados',
+                    SINCE: 'Programando desde'
+                },
+                SERVICES_TITLE: 'Qué hago',
+                SERVICES: {
+                    FRONTEND: 'Frontend',
+                    FRONTEND_DESC: 'Interfaces que funcionan en celular, tablet y laptop.',
+                    BACKEND: 'Backend',
+                    BACKEND_DESC: 'La lógica de negocio y las APIs con las que habla el frontend.',
+                    APIS: 'APIs y seguridad',
+                    APIS_DESC: 'APIs REST con inicio de sesión, roles y validación de datos.',
+                    DATABASES: 'Bases de datos',
+                    DATABASES_DESC: 'Modelos de datos y consultas que aguantan cuando los datos crecen.'
+                },
                 SELECTED: 'Proyectos destacados',
                 ALL_PROJECTS: 'Todos los proyectos'
             },
@@ -215,6 +258,17 @@ export class TranslationService {
                 PROFILE_TITLE: 'Perfil',
                 PROFILE_DESC: 'Soy desarrollador full-stack. Construyo aplicaciones web completas: la API REST, la base de datos y la interfaz que usa la gente.',
                 PROFILE_DESC_2: 'Me gusta el código que otra persona puede abrir y entender, y prefiero las soluciones simples a las ingeniosas. Sigo aprendiendo con cursos y proyectos propios; puedes verlos en la sección de certificados.',
+                TIMELINE_TITLE: 'Trayectoria',
+                TIMELINE: {
+                    Y2026: 'E-commerce full-stack y este portfolio',
+                    Y2026_DESC: 'Una tienda en línea con Spring Boot y Angular, y este sitio con Angular y FastAPI.',
+                    Y2025: 'Backend, bases de datos y DevOps',
+                    Y2025_DESC: 'Cursos de Udemy de Python, MySQL, Django + Angular y CI/CD con GitLab. Primeros proyectos propios: el comparador de CV y el detector de fraude.',
+                    Y2023: 'Programación orientada a objetos y diseño responsivo',
+                    Y2023_DESC: 'Certificaciones de freeCodeCamp (diseño web responsivo, algoritmos en JavaScript) y cursos de la Fundación Carlos Slim (programación orientada a objetos, sitios responsivos).',
+                    Y2022: 'Primeros cursos de desarrollo web',
+                    Y2022_DESC: 'INFOTEP: diseño de páginas web con HTML, CSS y JavaScript.'
+                },
                 SKILLS_TITLE: 'Stack',
                 CAT_LANGUAGES: 'Lenguajes',
                 CAT_FRONTEND: 'Frontend',
