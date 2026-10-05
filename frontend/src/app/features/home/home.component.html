@@ -1,0 +1,28 @@
+<div class="container">
+  <section class="hero">
+    <p class="eyebrow">{{ 'HOME.EYEBROW' | translate }}</p>
+    <h1 class="hero-title">{{ 'HOME.TITLE' | translate }}</h1>
+    <p class="hero-text">{{ 'HOME.INTRO' | translate }}</p>
+
+    <div class="hero-links">
+      <a routerLink="/projects" class="link-arrow">{{ 'HOME.VIEW_WORK' | translate }} →</a>
+      <a routerLink="/contact" class="link-arrow">{{ 'HOME.CONTACT' | translate }} →</a>
+    </div>
+  </section>
+
+  <section class="selected">
+    <div class="selected-header">
+      <h2 class="eyebrow">{{ 'HOME.SELECTED' | translate }}</h2>
+      <a routerLink="/projects" class="selected-all">{{ 'HOME.ALL_PROJECTS' | translate }} →</a>
+    </div>
+
+    <p *ngIf="loading" class="status">{{ 'PROJECTS.LOADING' | translate }}</p>
+    <p *ngIf="error" class="status">{{ 'PROJECTS.ERROR' | translate }}</p>
+
+    <ol *ngIf="!loading && !error" class="row-list">
+      <li *ngFor="let project of featuredProjects; let i = index">
+        <app-project-row [project]="project" [index]="i + 1"></app-project-row>
+      </li>
+    </ol>
+  </section>
+</div>

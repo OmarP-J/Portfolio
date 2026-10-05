@@ -1,0 +1,71 @@
+.prose p {
+  max-width: 40rem;
+  font-size: 1.125rem;
+}
+
+.prose p + p {
+  margin-top: 1rem;
+}
+
+/* Stack: categoría arriba y tecnologías debajo; desde tablet, en dos columnas */
+.stack-row {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.stack-row:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+.stack-row dt {
+  font-weight: 500;
+}
+
+.stack .tag-list {
+  font-size: 1rem;
+}
+
+.languages li {
+  font-size: 1.125rem;
+}
+
+.principles {
+  display: grid;
+  gap: 2rem;
+}
+
+.principles li {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+}
+
+.principle-number {
+  padding-top: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.principles h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.375rem;
+}
+
+.principles p {
+  color: var(--text-muted);
+}
+
+@media (min-width: 640px) {
+  .stack-row {
+    grid-template-columns: 12rem 1fr;
+    gap: 1.5rem;
+  }
+
+  .principles {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 2rem;
+  }
+}

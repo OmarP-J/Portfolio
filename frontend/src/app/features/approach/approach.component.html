@@ -1,82 +1,34 @@
-<div class="approach-container">
-  <section class="approach-hero">
+<div class="container">
+  <header class="page-header">
+    <p class="eyebrow">{{ 'APPROACH.EYEBROW' | translate }}</p>
     <h1>{{ 'APPROACH.TITLE' | translate }}</h1>
-    <p class="subtitle">{{ 'APPROACH.SUBTITLE' | translate }}</p>
+    <p>{{ 'APPROACH.SUBTITLE' | translate }}</p>
+  </header>
+
+  <section class="section">
+    <h2 class="section-label eyebrow">{{ 'APPROACH.PHILOSOPHY' | translate }}</h2>
+    <p class="lead">{{ 'APPROACH.PHILOSOPHY_DESC' | translate }}</p>
   </section>
 
-  <section class="content-section">
-    <div class="intro">
-      <h2>{{ 'APPROACH.PHILOSOPHY' | translate }}</h2>
-      <p>
-        {{ 'APPROACH.PHILOSOPHY_DESC' | translate }}
-      </p>
-    </div>
+  <section class="section">
+    <h2 class="section-label eyebrow">{{ 'APPROACH.WORKFLOW' | translate }}</h2>
+    <ol class="row-list">
+      <li *ngFor="let step of steps; let i = index" class="step">
+        <span class="step-number">{{ i + 1 | number: '2.0-0' }}</span>
+        <h3>{{ step.titleKey | translate }}</h3>
+        <p>{{ step.descKey | translate }}</p>
+      </li>
+    </ol>
+  </section>
 
-    <div class="workflow-section">
-      <h2>{{ 'APPROACH.WORKFLOW' | translate }}</h2>
-      <div class="workflow-steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <h4>{{ 'APPROACH.STEPS.UNDERSTAND' | translate }}</h4>
-          <p>{{ 'APPROACH.STEPS.UNDERSTAND_DESC' | translate }}</p>
-        </div>
-
-        <div class="step">
-          <div class="step-number">2</div>
-          <h4>{{ 'APPROACH.STEPS.DESIGN' | translate }}</h4>
-          <p>{{ 'APPROACH.STEPS.DESIGN_DESC' | translate }}</p>
-        </div>
-
-        <div class="step">
-          <div class="step-number">3</div>
-          <h4>{{ 'APPROACH.STEPS.BUILD' | translate }}</h4>
-          <p>{{ 'APPROACH.STEPS.BUILD_DESC' | translate }}</p>
-        </div>
-
-        <div class="step">
-          <div class="step-number">4</div>
-          <h4>{{ 'APPROACH.STEPS.REVIEW' | translate }}</h4>
-          <p>{{ 'APPROACH.STEPS.REVIEW_DESC' | translate }}</p>
-        </div>
-
-        <div class="step">
-          <div class="step-number">5</div>
-          <h4>{{ 'APPROACH.STEPS.DEPLOY' | translate }}</h4>
-          <p>{{ 'APPROACH.STEPS.DEPLOY_DESC' | translate }}</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="quality-section">
-      <h2>{{ 'APPROACH.QUALITY' | translate }}</h2>
-      <div class="quality-grid">
-        <div class="quality-item">
-          <h4>{{ 'APPROACH.QUALITY_QA.STANDARDS' | translate }}</h4>
-          <ul>
-            <li *ngFor="let item of ('APPROACH.QUALITY_QA.STANDARDS_ITEMS' | translate)">{{ item }}</li>
-          </ul>
-        </div>
-
-        <div class="quality-item">
-          <h4>{{ 'APPROACH.QUALITY_QA.VCS' | translate }}</h4>
-          <ul>
-            <li *ngFor="let item of ('APPROACH.QUALITY_QA.VCS_ITEMS' | translate)">{{ item }}</li>
-          </ul>
-        </div>
-
-        <div class="quality-item">
-          <h4>{{ 'APPROACH.QUALITY_QA.TESTING' | translate }}</h4>
-          <ul>
-            <li *ngFor="let item of ('APPROACH.QUALITY_QA.TESTING_ITEMS' | translate)">{{ item }}</li>
-          </ul>
-        </div>
-
-        <div class="quality-item">
-          <h4>{{ 'APPROACH.QUALITY_QA.SECURITY' | translate }}</h4>
-          <ul>
-            <li *ngFor="let item of ('APPROACH.QUALITY_QA.SECURITY_ITEMS' | translate)">{{ item }}</li>
-          </ul>
-        </div>
+  <section class="section">
+    <h2 class="section-label eyebrow">{{ 'APPROACH.QUALITY' | translate }}</h2>
+    <div class="quality-grid">
+      <div *ngFor="let group of qualityGroups">
+        <h3>{{ group.titleKey | translate }}</h3>
+        <ul class="quality-list">
+          <li *ngFor="let item of (group.itemsKey | translate)">{{ item }}</li>
+        </ul>
       </div>
     </div>
   </section>

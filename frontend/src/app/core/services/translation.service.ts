@@ -2,7 +2,7 @@
  * Translation Service
  * Manages language state and translations
  */
-import { Injectable, signal } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 export type Language = 'en' | 'es';
@@ -17,55 +17,59 @@ export class TranslationService {
     private translations: any = {
         en: {
             NAV: {
-                HOME: 'Home',
                 ABOUT: 'About',
-                PROJECTS: 'Projects & Certs',
+                PROJECTS: 'Projects',
                 APPROACH: 'Approach',
-                CONTACT: 'Contact'
+                CONTACT: 'Contact',
+                MENU: 'Menu',
+                CLOSE: 'Close',
+                SWITCH_LANG: 'Cambiar a español',
+                SWITCH_THEME: 'Switch light / dark theme'
             },
             HOME: {
-                HI: "Hi, I'm",
-                SUBTITLE: 'Full-Stack Software Developer',
-                DESC: 'I build modern, scalable web applications with clean architecture, best practices, and a focus on delivering exceptional user experiences.',
-                VIEW_WORK: 'View My Work',
-                GET_TOUCH: 'Get In Touch',
-                MODERN_STACK: 'Modern Stack',
-                BEST_PRACTICES: 'Best Practices',
-                PROBLEM_SOLVER: 'Problem Solver'
+                EYEBROW: 'Full-stack developer · Santo Domingo',
+                TITLE: 'I build web apps, from the database to the interface.',
+                INTRO: 'I mostly work with Angular on the front end and Spring Boot or FastAPI on the back end.',
+                VIEW_WORK: 'See projects',
+                CONTACT: 'Get in touch',
+                SELECTED: 'Selected projects',
+                ALL_PROJECTS: 'All projects'
             },
             ABOUT: {
-                TITLE: 'About Me',
-                SUBTITLE: 'Full-Stack Developer | Clean Code Advocate | Problem Solver',
-                PROFILE_TITLE: 'Professional Profile',
-                PROFILE_DESC: "I'm a passionate full-stack software developer with a strong focus on building scalable, maintainable web applications.",
-                PROFILE_DESC_2: "My approach combines technical excellence with business understanding, ensuring that every line of code contributes to real user value and business objectives.",
-                SKILLS_TITLE: 'Technical Expertise',
-                CAT_LANGUAGES: 'Programming Languages',
-                CAT_FRONTEND: 'Frontend',
-                CAT_BACKEND: 'Backend',
+                EYEBROW: 'About',
+                TITLE: 'About me',
+                SUBTITLE: 'Full-stack developer based in Santo Domingo, Dominican Republic.',
+                PROFILE_TITLE: 'Profile',
+                PROFILE_DESC: "I'm a full-stack developer. I build complete web applications: the REST API, the database and the interface people actually use.",
+                PROFILE_DESC_2: 'I like code that someone else can open and understand, and I prefer simple solutions over clever ones. I keep learning through courses and side projects; you can see them in the certificates section.',
+                SKILLS_TITLE: 'Stack',
+                CAT_LANGUAGES: 'Languages',
+                CAT_FRONTEND: 'Front end',
+                CAT_BACKEND: 'Back end',
                 CAT_DATABASES: 'Databases',
-                CAT_ORMS: 'ORMs / Persistence',
-                CAT_TESTING: 'Testing / APIs / Integrations',
-                CAT_DEVOPS: 'DevOps / Tools',
-                CAT_OS: 'Operating Systems',
-                CAT_IDIOMAS: 'Languages',
-                LANG_ES: 'Spanish – Native',
-                LANG_EN: 'English – B1',
-                PHILOSOPHY_TITLE: 'Development Philosophy',
+                CAT_ORMS: 'Persistence',
+                CAT_TESTING: 'APIs & integrations',
+                CAT_DEVOPS: 'DevOps & tools',
+                CAT_OS: 'Operating systems',
+                CAT_IDIOMAS: 'Spoken languages',
+                LANG_ES: 'Spanish — native',
+                LANG_EN: 'English — B1',
+                PHILOSOPHY_TITLE: 'How I work',
                 PHILOSOPHY: {
-                    CLEAN_CODE: 'Clean Code',
-                    CLEAN_CODE_DESC: 'Code should be readable, maintainable, and self-documenting. I follow SOLID principles and design patterns.',
-                    USER_CENTRIC: 'User-Centric',
-                    USER_CENTRIC_DESC: 'Every technical decision should ultimately serve the end user and deliver real business value.',
-                    LEARNING: 'Continuous Learning',
-                    LEARNING_DESC: 'Technology evolves rapidly. I stay current with industry trends and continuously refine my skills.',
-                    COLLABORATION: 'Collaboration',
-                    COLLABORATION_DESC: 'Great software is built by great teams. Clear communication and knowledge sharing are essential.'
+                    CLEAN_CODE: 'Readable code',
+                    CLEAN_CODE_DESC: "If a teammate can't follow it, it isn't done. Clear names, small functions, no tricks.",
+                    USER_CENTRIC: 'The user first',
+                    USER_CENTRIC_DESC: 'Technical decisions should make the product better for the people who use it.',
+                    LEARNING: 'Always learning',
+                    LEARNING_DESC: 'I take courses and build side projects to try new tools before using them for real.',
+                    COLLABORATION: 'Working with others',
+                    COLLABORATION_DESC: 'Clear commits, honest code reviews, and asking early when something is unclear.'
                 }
             },
             PROJECTS: {
-                TITLE: 'My Work',
-                SUBTITLE: 'A showcase of my projects and professional certifications',
+                EYEBROW: 'Work',
+                TITLE: 'Projects',
+                SUBTITLE: "Things I've built and courses I've completed.",
                 TABS: {
                     PROJECTS: 'Projects',
                     CERTIFICATES: 'Certificates'
@@ -88,149 +92,157 @@ export class TranslationService {
                     UDEMY_JARVIS: 'Learn To Create JARVIS AI [Mark-I] Android App Using JAVA'
                 },
                 CERTIFICATES: {
-                    ISSUED_BY: 'Issued by',
-                    DATE: 'Issued on',
-                    ID: 'Credential ID',
-                    VIEW: 'Verify Credential'
+                    VIEW: 'Verify credential'
                 },
-                LOADING: 'Loading...',
-                LOADING_DETAIL: 'Loading project...',
-                NO_PROJECTS: 'No items found.',
-                VIEW_DETAILS: 'View Details',
-                ABOUT_PROJECT: 'About the Project',
-                VIEW_CODE: 'View Code',
-                LIVE_DEMO: 'Live Demo',
-                BACK_TO_PROJECTS: 'Back to Projects',
-                FEATURED: 'Featured',
-                RETRY: 'Retry',
+                LOADING: 'Loading…',
+                ERROR: "Couldn't load the projects.",
+                RETRY: 'Try again',
+                NO_PROJECTS: 'Nothing here yet.',
+                NOT_FOUND: "This project doesn't exist or couldn't be loaded.",
+                BACK_TO_PROJECTS: 'Back to projects',
+                ABOUT_PROJECT: 'About the project',
+                STACK: 'Stack',
+                YEAR: 'Year',
+                LINKS: 'Links',
+                VIEW_CODE: 'Code on GitHub',
+                LIVE_DEMO: 'Live demo',
+                PREV: 'Previous image',
+                NEXT: 'Next image',
+                CLOSE: 'Close',
                 ITEMS: {
                     'ai-resume-matcher': {
-                        NAME: 'AI Resume & Job Matcher',
-                        DESC: 'Intelligent system that matches resumes with job descriptions using AI and NLP',
-                        LONG_DESC: 'An advanced AI-powered application that analyzes resumes and job descriptions to provide intelligent matching scores and recommendations. Built with Python, FastAPI, and modern AI libraries, this system helps recruiters and job seekers find the best matches.'
+                        NAME: 'Resume & job matcher',
+                        DESC: 'Compares a resume with a job description and returns a compatibility score.',
+                        LONG_DESC: 'A FastAPI service that reads resumes and job descriptions, extracts skills and experience with NLP, and returns a match score with a compatibility report. Written in Python with Pydantic for validation and packaged with Docker.'
                     },
                     'fraud-detection-system': {
-                        NAME: 'Fraud Detection System',
-                        DESC: 'Machine learning system for real-time fraud detection in financial transactions',
-                        LONG_DESC: 'A production-ready fraud detection system that analyzes financial transactions in real-time to identify potential fraud. Uses machine learning models and statistical analysis to provide accurate fraud risk assessments.'
+                        NAME: 'Fraud detection system',
+                        DESC: 'Gives each financial transaction a fraud risk score as it comes in.',
+                        LONG_DESC: 'Analyzes transactions in real time and scores their risk by combining several machine learning models built with scikit-learn. Suspicious transactions trigger alerts. Data processing with pandas, API in FastAPI, storage in PostgreSQL and Redis.'
                     },
                     'portfolio-web': {
-                        NAME: 'Professional Portfolio Platform',
-                        DESC: 'Modern full-stack portfolio application with Angular and FastAPI',
-                        LONG_DESC: 'A complete, production-ready portfolio platform showcasing modern web development best practices. Features a FastAPI backend with layered architecture and an Angular frontend with lazy loading and responsive design.'
+                        NAME: 'This portfolio',
+                        DESC: "The site you're on: Angular front end, FastAPI back end.",
+                        LONG_DESC: 'An Angular front end and a FastAPI back end that serves the projects and handles the contact form. The layout is mobile-first and the code is kept simple on purpose so anyone can read it.'
                     },
                     'ecommerce-platform': {
-                        NAME: 'Full-Stack E-Commerce Platform',
-                        DESC: 'Scalable e-commerce platform built with Spring Boot and Angular',
-                        LONG_DESC: 'A complete e-commerce platform developed using a decoupled client-server architecture, delivering a secure and scalable online shopping experience. The backend is built with Java 21 and Spring Boot, exposing a robust REST API, while the frontend is a dynamic Angular 19 SPA.'
+                        NAME: 'E-commerce platform',
+                        DESC: 'Online store with a Spring Boot API and an Angular front end.',
+                        LONG_DESC: 'A REST API in Java 21 and Spring Boot handles products, categories, the shopping cart and orders. Sessions use JWT, with role-based access through Spring Security. The front end is an Angular 19 single-page app with Angular Material, and it runs on MySQL, PostgreSQL or SQL Server.'
                     }
                 }
             },
             APPROACH: {
-                TITLE: 'My Approach',
-                SUBTITLE: 'Building software with best practices and clean code principles',
-                PHILOSOPHY: 'Development Philosophy',
-                PHILOSOPHY_DESC: "Great software is not just about making things work—it's about creating maintainable, scalable solutions that deliver value over time. My approach combines technical excellence with pragmatic problem-solving.",
-                WORKFLOW: 'Development Workflow',
-                QUALITY: 'Quality Assurance',
+                EYEBROW: 'Approach',
+                TITLE: 'How I build software',
+                SUBTITLE: 'The process I follow on every project, from the first conversation to deployment.',
+                PHILOSOPHY: 'In short',
+                PHILOSOPHY_DESC: 'Making it work is only the first step. It also has to be easy to change six months later, by me or by someone else.',
+                WORKFLOW: 'Process',
+                QUALITY: 'Quality',
                 STEPS: {
                     UNDERSTAND: 'Understand',
-                    UNDERSTAND_DESC: 'Deep dive into requirements, business context, and user needs',
+                    UNDERSTAND_DESC: 'Ask questions until the problem, the users and the limits are clear.',
                     DESIGN: 'Design',
-                    DESIGN_DESC: 'Plan architecture, select technologies, define interfaces',
+                    DESIGN_DESC: 'Pick the architecture and tools, and define the data and the API before writing code.',
                     BUILD: 'Build',
-                    BUILD_DESC: 'Write clean, tested code following best practices',
+                    BUILD_DESC: 'Small, frequent commits, with tests for the parts that matter.',
                     REVIEW: 'Review',
-                    REVIEW_DESC: 'Code review, testing, and quality assurance',
+                    REVIEW_DESC: 'Code review and manual testing before anything reaches production.',
                     DEPLOY: 'Deploy',
-                    DEPLOY_DESC: 'CI/CD pipeline, monitoring, and continuous improvement'
+                    DEPLOY_DESC: 'Automated deploys with CI/CD, then watch how it behaves in production.'
                 },
                 QUALITY_QA: {
-                    STANDARDS: 'Code Standards',
-                    STANDARDS_ITEMS: ['Consistent naming conventions', 'Meaningful variable names', 'DRY principle', 'KISS principle'],
-                    VCS: 'Version Control',
-                    VCS_ITEMS: ['Meaningful commit messages', 'Feature branches', 'Pull requests', 'Git best practices'],
-                    TESTING: 'Testing Strategy',
-                    TESTING_ITEMS: ['Unit tests', 'Integration tests', 'E2E tests', 'Coverage monitoring'],
+                    STANDARDS: 'Code',
+                    STANDARDS_ITEMS: ['Consistent naming', 'Small functions with one job', 'No duplicated logic (DRY)', 'Keep it simple (KISS)'],
+                    VCS: 'Git',
+                    VCS_ITEMS: ['Descriptive commit messages', 'One branch per feature', 'Pull requests with review'],
+                    TESTING: 'Testing',
+                    TESTING_ITEMS: ['Unit tests', 'Integration tests', 'End-to-end tests for key flows'],
                     SECURITY: 'Security',
-                    SECURITY_ITEMS: ['Input validation', 'AuthN & AuthZ', 'Best practices', 'Regular audits']
+                    SECURITY_ITEMS: ['Validate all input', 'Authentication and authorization', 'Regular security reviews']
                 }
             },
             CONTACT: {
-                TITLE: 'Get In Touch',
-                SUBTITLE: "Let's discuss your next project or collaboration opportunity",
-                INTRO: "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out through the form below or via email.",
+                EYEBROW: 'Contact',
+                TITLE: "Let's talk",
+                SUBTITLE: 'Write to me about a job, a project or just a question.',
+                INTRO: "I'm based in Santo Domingo and open to on-site roles. Use the form or reach me directly:",
                 NAME: 'Name',
                 EMAIL: 'Email',
                 SUBJECT: 'Subject',
                 MESSAGE: 'Message',
-                SEND: 'Send Message',
-                SENDING: 'Sending...',
-                SUCCESS: 'Message sent successfully!',
-                ERROR: 'Failed to send message.',
-                REQUIRED: 'is required'
+                SEND: 'Send message',
+                SENDING: 'Sending…',
+                SUCCESS: "Thanks, your message was sent. I'll get back to you soon.",
+                ERROR: "The message couldn't be sent. Try again or email me directly.",
+                ERRORS: {
+                    REQUIRED: 'This field is required.',
+                    EMAIL: 'Enter a valid email address.',
+                    TOO_SHORT: 'This is too short.',
+                    TOO_LONG: 'This is too long.',
+                    INVALID: 'Check this field.'
+                }
             },
             FOOTER: {
-                NAME_ROLE: 'Jaroly Omar Polanco – Full Stack Developer',
-                LOCATION: 'Santo Domingo, Dominican Republic – Open to on-site opportunities',
-                COPYRIGHT: '© 2026 Jaroly Omar Polanco',
-                DESC: 'Building modern, scalable web applications with clean code and best practices.',
-                QUICK_LINKS: 'Quick Links',
-                TECHNOLOGIES: 'Technologies',
-                BUILT_WITH: 'Built with'
+                LOCATION: 'Santo Domingo, Dominican Republic · Open to on-site roles'
             }
         },
         es: {
             NAV: {
-                HOME: 'Inicio',
-                ABOUT: 'Sobre Mí',
-                PROJECTS: 'Proyectos y Certs',
+                ABOUT: 'Sobre mí',
+                PROJECTS: 'Proyectos',
                 APPROACH: 'Enfoque',
-                CONTACT: 'Contacto'
+                CONTACT: 'Contacto',
+                MENU: 'Menú',
+                CLOSE: 'Cerrar',
+                SWITCH_LANG: 'Switch to English',
+                SWITCH_THEME: 'Cambiar tema claro / oscuro'
             },
             HOME: {
-                HI: "Hola, soy",
-                SUBTITLE: 'Desarrollador de Software Full-Stack',
-                DESC: 'Construyo aplicaciones web modernas y escalables con arquitectura limpia, mejores prácticas y un enfoque en ofrecer experiencias de usuario excepcionales.',
-                VIEW_WORK: 'Ver Mi Trabajo',
-                GET_TOUCH: 'Contáctame',
-                MODERN_STACK: 'Stack Moderno',
-                BEST_PRACTICES: 'Mejores Prácticas',
-                PROBLEM_SOLVER: 'Resolución de Problemas'
+                EYEBROW: 'Desarrollador full-stack · Santo Domingo',
+                TITLE: 'Construyo aplicaciones web, desde la base de datos hasta la interfaz.',
+                INTRO: 'Trabajo sobre todo con Angular en el frontend y con Spring Boot o FastAPI en el backend.',
+                VIEW_WORK: 'Ver proyectos',
+                CONTACT: 'Escríbeme',
+                SELECTED: 'Proyectos destacados',
+                ALL_PROJECTS: 'Todos los proyectos'
             },
             ABOUT: {
-                TITLE: 'Sobre Mí',
-                SUBTITLE: 'Desarrollador Full-Stack | Clean Code | Solucionador',
-                PROFILE_TITLE: 'Perfil Profesional',
-                PROFILE_DESC: 'Soy un apasionado desarrollador full-stack con un fuerte enfoque en construir aplicaciones web escalables y mantenibles.',
-                PROFILE_DESC_2: 'Mi enfoque combina la excelencia técnica con la comprensión del negocio, asegurando que cada línea de código contribuya al valor real del usuario y los objetivos comerciales.',
-                SKILLS_TITLE: 'Experiencia Técnica',
-                CAT_LANGUAGES: 'Lenguajes de programación',
+                EYEBROW: 'Sobre mí',
+                TITLE: 'Sobre mí',
+                SUBTITLE: 'Desarrollador full-stack en Santo Domingo, República Dominicana.',
+                PROFILE_TITLE: 'Perfil',
+                PROFILE_DESC: 'Soy desarrollador full-stack. Construyo aplicaciones web completas: la API REST, la base de datos y la interfaz que usa la gente.',
+                PROFILE_DESC_2: 'Me gusta el código que otra persona puede abrir y entender, y prefiero las soluciones simples a las ingeniosas. Sigo aprendiendo con cursos y proyectos propios; puedes verlos en la sección de certificados.',
+                SKILLS_TITLE: 'Stack',
+                CAT_LANGUAGES: 'Lenguajes',
                 CAT_FRONTEND: 'Frontend',
                 CAT_BACKEND: 'Backend',
                 CAT_DATABASES: 'Bases de datos',
-                CAT_ORMS: 'ORMs / Persistencia',
-                CAT_TESTING: 'Testing / APIs / Integraciones',
-                CAT_DEVOPS: 'DevOps / Infra / Herramientas',
+                CAT_ORMS: 'Persistencia',
+                CAT_TESTING: 'APIs e integraciones',
+                CAT_DEVOPS: 'DevOps y herramientas',
                 CAT_OS: 'Sistemas operativos',
                 CAT_IDIOMAS: 'Idiomas',
-                LANG_ES: 'Español – Nativo',
-                LANG_EN: 'Inglés – B1',
-                PHILOSOPHY_TITLE: 'Filosofía de Desarrollo',
+                LANG_ES: 'Español — nativo',
+                LANG_EN: 'Inglés — B1',
+                PHILOSOPHY_TITLE: 'Cómo trabajo',
                 PHILOSOPHY: {
-                    CLEAN_CODE: 'Código Limpio',
-                    CLEAN_CODE_DESC: 'El código debe ser legible, mantenible y autodocumentado. Sigo los principios SOLID y patrones de diseño.',
-                    USER_CENTRIC: 'Centrado en el Usuario',
-                    USER_CENTRIC_DESC: 'Cada decisión técnica debe servir en última instancia al usuario final y entregar valor comercial real.',
-                    LEARNING: 'Aprendizaje Continuo',
-                    LEARNING_DESC: 'La tecnología evoluciona rápidamente. Me mantengo al día con las tendencias de la industria y refino continuamente mis habilidades.',
-                    COLLABORATION: 'Colaboración',
-                    COLLABORATION_DESC: 'El gran software es construido por grandes equipos. La comunicación clara y el intercambio de conocimientos son esenciales.'
+                    CLEAN_CODE: 'Código legible',
+                    CLEAN_CODE_DESC: 'Si un compañero no lo entiende, no está terminado. Nombres claros, funciones pequeñas y sin trucos.',
+                    USER_CENTRIC: 'Primero el usuario',
+                    USER_CENTRIC_DESC: 'Las decisiones técnicas tienen que mejorar el producto para quien lo usa.',
+                    LEARNING: 'Aprender siempre',
+                    LEARNING_DESC: 'Hago cursos y proyectos propios para probar herramientas nuevas antes de usarlas en serio.',
+                    COLLABORATION: 'Trabajo en equipo',
+                    COLLABORATION_DESC: 'Commits claros, revisiones de código honestas y preguntar a tiempo cuando algo no está claro.'
                 }
             },
             PROJECTS: {
-                TITLE: 'Mi Trabajo',
-                SUBTITLE: 'Una muestra de mis proyectos y certificaciones profesionales',
+                EYEBROW: 'Trabajo',
+                TITLE: 'Proyectos',
+                SUBTITLE: 'Lo que he construido y los cursos que he completado.',
                 TABS: {
                     PROJECTS: 'Proyectos',
                     CERTIFICATES: 'Certificados'
@@ -253,96 +265,100 @@ export class TranslationService {
                     UDEMY_JARVIS: 'Aprende a Crear JARVIS AI [Mark-I] App Android Usando JAVA'
                 },
                 CERTIFICATES: {
-                    ISSUED_BY: 'Emitido por',
-                    DATE: 'Fecha de emisión',
-                    ID: 'ID de credencial',
-                    VIEW: 'Verificar Credencial'
+                    VIEW: 'Verificar credencial'
                 },
-                LOADING: 'Cargando...',
-                LOADING_DETAIL: 'Cargando proyecto...',
-                NO_PROJECTS: 'No se encontraron elementos.',
-                VIEW_DETAILS: 'Ver Detalles',
-                ABOUT_PROJECT: 'Sobre el Proyecto',
-                VIEW_CODE: 'Ver Código',
-                LIVE_DEMO: 'Demo en Vivo',
-                BACK_TO_PROJECTS: 'Volver a Proyectos',
-                FEATURED: 'Destacado',
+                LOADING: 'Cargando…',
+                ERROR: 'No se pudieron cargar los proyectos.',
                 RETRY: 'Reintentar',
+                NO_PROJECTS: 'Todavía no hay nada aquí.',
+                NOT_FOUND: 'Este proyecto no existe o no se pudo cargar.',
+                BACK_TO_PROJECTS: 'Volver a proyectos',
+                ABOUT_PROJECT: 'Sobre el proyecto',
+                STACK: 'Stack',
+                YEAR: 'Año',
+                LINKS: 'Enlaces',
+                VIEW_CODE: 'Código en GitHub',
+                LIVE_DEMO: 'Ver demo',
+                PREV: 'Imagen anterior',
+                NEXT: 'Imagen siguiente',
+                CLOSE: 'Cerrar',
                 ITEMS: {
                     'ai-resume-matcher': {
-                        NAME: 'Analizador de CV con IA',
-                        DESC: 'Sistema inteligente que empareja currículums con descripciones de trabajo usando IA y PLN',
-                        LONG_DESC: 'Una aplicación avanzada impulsada por IA que analiza currículums y descripciones de trabajo para proporcionar puntuaciones de coincidencia y recomendaciones inteligentes. Construido con Python, FastAPI y bibliotecas modernas de IA.'
+                        NAME: 'Comparador de CV y ofertas',
+                        DESC: 'Compara un currículum con una oferta de trabajo y devuelve un porcentaje de compatibilidad.',
+                        LONG_DESC: 'Un servicio en FastAPI que lee currículums y ofertas de trabajo, extrae habilidades y experiencia con PLN y devuelve una puntuación con un informe de compatibilidad. Escrito en Python, con Pydantic para validar los datos y empaquetado con Docker.'
                     },
                     'fraud-detection-system': {
-                        NAME: 'Sistema de Detección de Fraude',
-                        DESC: 'Sistema de aprendizaje automático para la detección de fraude en tiempo real en transacciones financieras',
-                        LONG_DESC: 'Un sistema de detección de fraude listo para producción que analiza transacciones financieras en tiempo real para identificar fraudes potenciales utilizando modelos de aprendizaje automático.'
+                        NAME: 'Detector de fraude',
+                        DESC: 'Asigna a cada transacción financiera un nivel de riesgo de fraude en el momento en que llega.',
+                        LONG_DESC: 'Analiza transacciones en tiempo real y calcula su riesgo combinando varios modelos de machine learning hechos con scikit-learn. Las transacciones sospechosas generan alertas. Procesamiento de datos con pandas, API en FastAPI y almacenamiento en PostgreSQL y Redis.'
                     },
                     'portfolio-web': {
-                        NAME: 'Plataforma de Portfolio Profesional',
-                        DESC: 'Aplicación de portfolio full-stack moderna con Angular y FastAPI',
-                        LONG_DESC: 'Una plataforma de portfolio completa y lista para producción que muestra las mejores prácticas del desarrollo web moderno. Cuenta con un backend FastAPI y un frontend Angular responsivo.'
+                        NAME: 'Este portfolio',
+                        DESC: 'El sitio en el que estás: frontend en Angular y backend en FastAPI.',
+                        LONG_DESC: 'Un frontend en Angular y un backend en FastAPI que sirve los proyectos y gestiona el formulario de contacto. El diseño es mobile-first y el código se mantiene simple a propósito para que cualquiera lo pueda leer.'
                     },
                     'ecommerce-platform': {
-                        NAME: 'Plataforma E-Commerce Full-Stack',
-                        DESC: 'Plataforma de e-commerce escalable construida con Spring Boot y Angular',
-                        LONG_DESC: 'Una plataforma de e-commerce completa desarrollada utilizando una arquitectura cliente-servidor desacoplada, ofreciendo una experiencia de compra en línea segura y escalable. El backend está construido con Java 21 y Spring Boot, exponiendo una API REST robusta, mientras que el frontend es una SPA dinámica en Angular 19.'
+                        NAME: 'Plataforma de e-commerce',
+                        DESC: 'Tienda en línea con una API en Spring Boot y un frontend en Angular.',
+                        LONG_DESC: 'Una API REST en Java 21 y Spring Boot gestiona productos, categorías, el carrito y los pedidos. Las sesiones usan JWT, con acceso por roles mediante Spring Security. El frontend es una SPA en Angular 19 con Angular Material, y funciona con MySQL, PostgreSQL o SQL Server.'
                     }
                 }
             },
             APPROACH: {
-                TITLE: 'Mi Enfoque',
-                SUBTITLE: 'Construyendo software con mejores prácticas y código limpio',
-                PHILOSOPHY: 'Filosofía de Desarrollo',
-                PHILOSOPHY_DESC: "El gran software no se trata solo de hacer que las cosas funcionen; se trata de crear soluciones mantenibles y escalables que aporten valor a lo largo del tiempo. Mi enfoque combina la excelencia técnica con la resolución pragmática de problemas.",
-                WORKFLOW: 'Flujo de Trabajo',
-                QUALITY: 'Garantía de Calidad',
+                EYEBROW: 'Enfoque',
+                TITLE: 'Cómo construyo software',
+                SUBTITLE: 'El proceso que sigo en cada proyecto, desde la primera conversación hasta el despliegue.',
+                PHILOSOPHY: 'En resumen',
+                PHILOSOPHY_DESC: 'Que funcione es solo el primer paso. También tiene que ser fácil de cambiar seis meses después, por mí o por otra persona.',
+                WORKFLOW: 'Proceso',
+                QUALITY: 'Calidad',
                 STEPS: {
-                    UNDERSTAND: 'Comprender',
-                    UNDERSTAND_DESC: 'Inmersión profunda en los requisitos, el contexto empresarial y las necesidades del usuario',
+                    UNDERSTAND: 'Entender',
+                    UNDERSTAND_DESC: 'Preguntar hasta tener claros el problema, los usuarios y los límites.',
                     DESIGN: 'Diseñar',
-                    DESIGN_DESC: 'Planificar arquitectura, seleccionar tecnologías, definir interfaces',
+                    DESIGN_DESC: 'Elegir arquitectura y herramientas, y definir los datos y la API antes de escribir código.',
                     BUILD: 'Construir',
-                    BUILD_DESC: 'Escribir código limpio y probado siguiendo las mejores prácticas',
+                    BUILD_DESC: 'Commits pequeños y frecuentes, con pruebas en las partes importantes.',
                     REVIEW: 'Revisar',
-                    REVIEW_DESC: 'Revisión de código, pruebas y garantía de calidad',
+                    REVIEW_DESC: 'Revisión de código y pruebas manuales antes de que algo llegue a producción.',
                     DEPLOY: 'Desplegar',
-                    DEPLOY_DESC: 'Pipeline de CI/CD, monitoreo y mejora continua'
+                    DEPLOY_DESC: 'Despliegue automático con CI/CD y seguimiento de cómo se comporta en producción.'
                 },
                 QUALITY_QA: {
-                    STANDARDS: 'Estándares de Código',
-                    STANDARDS_ITEMS: ['Convenciones de nombres consistentes', 'Nombres significativos', 'Principio DRY', 'Principio KISS'],
-                    VCS: 'Control de Versiones',
-                    VCS_ITEMS: ['Mensajes de commit significativos', 'Ramas de características', 'Pull requests', 'Mejores prácticas de Git'],
-                    TESTING: 'Estrategia de Pruebas',
-                    TESTING_ITEMS: ['Pruebas unitarias', 'Pruebas de integración', 'Pruebas E2E', 'Monitoreo de cobertura'],
+                    STANDARDS: 'Código',
+                    STANDARDS_ITEMS: ['Nombres consistentes', 'Funciones pequeñas con un solo propósito', 'Sin lógica duplicada (DRY)', 'Mantenerlo simple (KISS)'],
+                    VCS: 'Git',
+                    VCS_ITEMS: ['Mensajes de commit descriptivos', 'Una rama por funcionalidad', 'Pull requests con revisión'],
+                    TESTING: 'Pruebas',
+                    TESTING_ITEMS: ['Pruebas unitarias', 'Pruebas de integración', 'Pruebas end-to-end en los flujos clave'],
                     SECURITY: 'Seguridad',
-                    SECURITY_ITEMS: ['Validación de entradas', 'AuthN & AuthZ', 'Mejores prácticas', 'Auditorías regulares']
+                    SECURITY_ITEMS: ['Validar toda entrada', 'Autenticación y autorización', 'Revisiones de seguridad periódicas']
                 }
             },
             CONTACT: {
-                TITLE: 'Contáctame',
-                SUBTITLE: 'Hablemos de tu próximo proyecto u oportunidad de colaboración',
-                INTRO: 'Siempre estoy abierto a discutir nuevos proyectos, ideas creativas u oportunidades para ser parte de tu visión. No dudes en contactarme a través del siguiente formulario o por correo electrónico.',
+                EYEBROW: 'Contacto',
+                TITLE: 'Hablemos',
+                SUBTITLE: 'Escríbeme por un trabajo, un proyecto o simplemente una pregunta.',
+                INTRO: 'Vivo en Santo Domingo y estoy disponible para trabajo presencial. Usa el formulario o escríbeme directamente:',
                 NAME: 'Nombre',
                 EMAIL: 'Correo',
                 SUBJECT: 'Asunto',
                 MESSAGE: 'Mensaje',
-                SEND: 'Enviar Mensaje',
-                SENDING: 'Enviando...',
-                SUCCESS: '¡Mensaje enviado con éxito!',
-                ERROR: 'Error al enviar el mensaje.',
-                REQUIRED: 'es requerido'
+                SEND: 'Enviar mensaje',
+                SENDING: 'Enviando…',
+                SUCCESS: 'Gracias, tu mensaje se envió. Te respondo pronto.',
+                ERROR: 'No se pudo enviar el mensaje. Inténtalo de nuevo o escríbeme al correo.',
+                ERRORS: {
+                    REQUIRED: 'Este campo es obligatorio.',
+                    EMAIL: 'Escribe un correo válido.',
+                    TOO_SHORT: 'Es demasiado corto.',
+                    TOO_LONG: 'Es demasiado largo.',
+                    INVALID: 'Revisa este campo.'
+                }
             },
             FOOTER: {
-                NAME_ROLE: 'Jaroly Omar Polanco – Full Stack Developer',
-                LOCATION: 'Santo Domingo, República Dominicana – Disponible para oportunidades presenciales',
-                COPYRIGHT: '© 2026 Jaroly Omar Polanco',
-                DESC: 'Construyendo aplicaciones web modernas y escalables con código limpio y mejores prácticas.',
-                QUICK_LINKS: 'Enlaces Rápidos',
-                TECHNOLOGIES: 'Tecnologías',
-                BUILT_WITH: 'Construido con'
+                LOCATION: 'Santo Domingo, República Dominicana · Disponible para trabajo presencial'
             }
         }
     };

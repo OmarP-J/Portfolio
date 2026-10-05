@@ -1,0 +1,16 @@
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <p class="footer-name">Jaroly Omar Polanco</p>
+      <p class="footer-location">{{ 'FOOTER.LOCATION' | translate }}</p>
+    </div>
+
+    <ul class="footer-links">
+      <li *ngFor="let link of socialLinks">
+        <a [href]="link.url" [attr.target]="link.newTab ? '_blank' : null" rel="noopener">{{ link.label }}</a>
+      </li>
+    </ul>
+
+    <p class="footer-copy eyebrow">© {{ currentYear }} Jaroly Omar Polanco</p>
+  </div>
+</footer>

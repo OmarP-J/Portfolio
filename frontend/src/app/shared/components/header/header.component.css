@@ -1,0 +1,134 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+}
+
+.menu-toggle,
+.lang-toggle {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ---------- Celular: el menú se despliega debajo del header ---------- */
+
+.nav {
+  display: none;
+  position: absolute;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  padding: 0.5rem var(--gutter) 1.5rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav.open {
+  display: block;
+}
+
+.nav-links a {
+  display: block;
+  padding: 0.75rem 0;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+}
+
+.nav-links a.active {
+  color: var(--accent);
+}
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.lang-toggle {
+  color: var(--text-muted);
+}
+
+.lang-toggle .current {
+  color: var(--text);
+}
+
+.theme-toggle {
+  display: flex;
+  color: var(--text-muted);
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+.lang-toggle:hover,
+.theme-toggle:hover {
+  color: var(--text);
+}
+
+/* ---------- Tablet y laptop: menú en línea ---------- */
+
+@media (min-width: 640px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: static;
+    padding: 0;
+    background: none;
+    border: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  .nav-links a {
+    padding: 0.25rem 0;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-bottom: 1px solid transparent;
+  }
+
+  .nav-links a:hover {
+    color: var(--text);
+  }
+
+  .nav-links a.active {
+    color: var(--text);
+    border-bottom-color: var(--accent);
+  }
+
+  .nav-controls {
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+}

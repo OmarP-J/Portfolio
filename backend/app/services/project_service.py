@@ -44,11 +44,7 @@ class ProjectService:
                 technologies=["Python", "FastAPI", "NLP", "AI/ML", "Pydantic", "Docker"],
                 repository_url="https://github.com/OmarP-J/ai-resume-matcher",
                 image_url="assets/projects/ai_resume.jpg",
-                gallery_images=[
-                    "https://placehold.co/800x450/1a1a1a/ffffff?text=Resume+Analysis",
-                    "https://placehold.co/800x450/2d2d2d/ffffff?text=Job+Matching",
-                    "https://placehold.co/800x450/404040/ffffff?text=Compatibility+Report"
-                ],
+                gallery_images=[],  # Agregar capturas reales aquí
                 featured=True,
                 created_at=datetime(2025, 12, 20),
             ),
@@ -80,11 +76,7 @@ class ProjectService:
             technologies=[ "Java 21", "Spring Boot", "Spring Security", "JWT", "Angular 19", "Angular Material", "REST API", "MySQL", "PostgreSQL", "SQL Server" ],
             repository_url="https://github.com/OmarP-J/E-Commerce-SpringBoot",
             image_url="assets/projects/ecommerce.jpg",
-            gallery_images=[
-                "https://placehold.co/800x450/1a1a1a/ffffff?text=Home+Page",
-                "https://placehold.co/800x450/2d2d2d/ffffff?text=Product+Management",
-                "https://placehold.co/800x450/404040/ffffff?text=Shopping+Cart"
-            ],
+            gallery_images=[],  # Agregar capturas reales aquí
             featured=True,
             created_at=datetime(2026, 1, 15),
             ),
@@ -108,11 +100,7 @@ class ProjectService:
                 technologies=["Python", "Scikit-learn", "Pandas", "FastAPI", "PostgreSQL", "Redis"],
                 repository_url="https://github.com/OmarP-J/fraud-detection-system",
                 image_url="assets/projects/fraud_detection.jpg",
-                gallery_images=[
-                    "https://placehold.co/800x450/1a1a1a/ffffff?text=Real-time+Detection",
-                    "https://placehold.co/800x450/2d2d2d/ffffff?text=Model+Performance",
-                    "https://placehold.co/800x450/404040/ffffff?text=Risk+Alerts"
-                ],
+                gallery_images=[],  # Agregar capturas reales aquí
                 featured=True,
                 created_at=datetime(2025, 12, 20),
             ),
@@ -137,11 +125,7 @@ class ProjectService:
                 repository_url="https://github.com/OmarP-J/Portfolio",
                 live_url="https://github.com/OmarP-J/Portfolio",
                 image_url="assets/projects/portfolio.jpg",
-                gallery_images=[
-                    "https://placehold.co/800x450/1a1a1a/ffffff?text=Frontend+Overview",
-                    "https://placehold.co/800x450/2d2d2d/ffffff?text=Backend+API",
-                    "https://placehold.co/800x450/404040/ffffff?text=Responsive+Design"
-                ],
+                gallery_images=[],  # Agregar capturas reales aquí
                 featured=False,
                 created_at=datetime.now(),
             ),
