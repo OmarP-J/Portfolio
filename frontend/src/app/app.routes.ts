@@ -7,11 +7,11 @@ import { ApproachComponent } from './features/approach/approach.component';
 import { ContactComponent } from './features/contact/contact.component';
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent, title: 'Home | Portfolio' },
-    { path: 'about', component: AboutComponent, title: 'About Me | Portfolio' },
-    { path: 'projects', component: ProjectsComponent, title: 'Projects | Portfolio' },
-    { path: 'projects/:id', component: ProjectDetailComponent, title: 'Project Detail | Portfolio' },
-    { path: 'approach', component: ApproachComponent, title: 'My Approach | Portfolio' },
-    { path: 'contact', component: ContactComponent, title: 'Contact | Portfolio' },
+    { path: '', component: HomeComponent, title: 'Omar Polanco — Full-stack developer' },
+    { path: 'about', component: AboutComponent, title: 'About · Omar Polanco' },
+    { path: 'projects', component: ProjectsComponent, title: 'Projects · Omar Polanco' },
+    { path: 'projects/:id', component: ProjectDetailComponent, title: 'Project · Omar Polanco' },
+    { path: 'approach', component: ApproachComponent, title: 'Approach · Omar Polanco' },
+    { path: 'contact', component: ContactComponent, title: 'Contact · Omar Polanco' },
     { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

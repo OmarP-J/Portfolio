@@ -1,0 +1,190 @@
+/* ---------- Presentación: texto + foto ---------- */
+
+.hero {
+  display: grid;
+  gap: 3rem;
+  padding: 3.5rem 0 3rem;
+}
+
+/* "● Disponible para trabajo presencial" */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+}
+
+.hero-title {
+  margin-top: 1.5rem;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+/* La frase debajo del nombre, en cursiva dorada */
+.hero-title em {
+  display: block;
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-intro {
+  margin-top: 1.75rem;
+  max-width: 34rem;
+  font-size: 1.125rem;
+  color: var(--text-muted);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.25rem;
+}
+
+.hero-photo {
+  width: 100%;
+  max-width: 22rem;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 5rem;
+  color: var(--accent);
+}
+
+/* ---------- Números ---------- */
+
+.stats {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.stats li {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1.5rem 0;
+}
+
+.stats li + li {
+  padding-left: 1rem;
+  border-left: 1px solid var(--line);
+}
+
+.stat-number {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1;
+}
+
+/* ---------- Secciones ---------- */
+
+.home-section {
+  padding-top: 4.5rem;
+}
+
+.home-section .kicker {
+  margin-bottom: 2rem;
+}
+
+.services {
+  display: grid;
+  gap: 2rem;
+}
+
+.services > li {
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.service-number {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+
+.services h3 {
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.services p {
+  margin-bottom: 0.75rem;
+  color: var(--text-muted);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.section-header .kicker {
+  margin-bottom: 0;
+}
+
+.see-all {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.see-all:hover {
+  color: var(--accent);
+}
+
+@media (min-width: 640px) {
+  .services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats li + li {
+    padding-left: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    grid-template-columns: 1.5fr 1fr;
+    align-items: center;
+    padding: 5rem 0 4rem;
+  }
+
+  .hero-photo {
+    max-width: none;
+  }
+
+  .services {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .three-cols {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

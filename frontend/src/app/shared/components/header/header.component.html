@@ -1,0 +1,34 @@
+<header class="header">
+  <div class="container header-inner">
+    <a routerLink="/" class="brand" (click)="closeMenu()">Omar Polanco</a>
+
+    <!-- Solo se ve en celular -->
+    <button class="menu-toggle" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-controls="main-nav">
+      {{ (menuOpen ? 'NAV.CLOSE' : 'NAV.MENU') | translate }}
+    </button>
+
+    <nav id="main-nav" class="nav" [class.open]="menuOpen">
+      <ul class="nav-links">
+        <li><a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">{{ 'NAV.ABOUT' | translate }}</a></li>
+        <li><a routerLink="/projects" routerLinkActive="active" (click)="closeMenu()">{{ 'NAV.PROJECTS' | translate }}</a></li>
+        <li><a routerLink="/approach" routerLinkActive="active" (click)="closeMenu()">{{ 'NAV.APPROACH' | translate }}</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">{{ 'NAV.CONTACT' | translate }}</a></li>
+      </ul>
+
+      <div class="nav-controls">
+        <button class="lang-toggle" (click)="toggleLanguage()" [attr.aria-label]="'NAV.SWITCH_LANG' | translate">
+          <span [class.current]="currentLang === 'es'">ES</span> /
+          <span [class.current]="currentLang === 'en'">EN</span>
+        </button>
+
+        <!-- Un solo ícono (círculo a medias) para claro y oscuro -->
+        <button class="theme-toggle" (click)="toggleTheme()" [attr.aria-label]="'NAV.SWITCH_THEME' | translate">
+          <svg viewBox="0 0 20 20" aria-hidden="true">
+            <circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="1.5" />
+            <path d="M10 2a8 8 0 0 1 0 16z" fill="currentColor" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>

@@ -1,56 +1,87 @@
+/*
+ * Estilos globales del portfolio
+ *
+ * Breakpoints (mobile-first, se usan los mismos en todo el proyecto):
+ *   - base       → celular
+ *   - 640px  +   → tablet
+ *   - 1024px +   → laptop
+ *
+ * Los colores viven en variables. El tema oscuro (el de por defecto) y el claro
+ * solo cambian esas variables.
+ */
+
 :root {
-  /* Light Theme - Modern & Professional */
-  --bg-body: #fdfdfd;
-  --bg-card: #ffffff;
-  --bg-header: rgba(253, 253, 253, 0.8);
-  --text-main: #1a1a1a;
-  --text-secondary: #4a4a4a;
-  --text-muted: #717171;
-  --primary: #2563eb;
-  --primary-hover: #1d4ed8;
-  --border: #e5e7eb;
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --header-height: 70px;
+  /* Tema claro */
+  --bg: #f6f4ef;
+  --surface: #ebe8e0;      /* fondo de foto y tarjetas sin imagen */
+  --text: #161616;
+  --text-muted: #5f5e5a;
+  --line: #d9d6cf;
+  --accent: #8a6a1f;       /* dorado oscuro, se lee bien sobre fondo claro */
+  --on-accent: #ffffff;    /* texto encima de un botón dorado */
+  --success: #2f8f5f;
+
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --radius: 16px;
+  --gutter: 1.25rem;
+  --max-width: 72rem;
+  --header-height: 64px;
 }
 
 [data-theme="dark"] {
-  /* Dark Theme - Sophisticated Minimalism */
-  --bg-body: #121212;
-  --bg-card: #1c1c1c;
-  --bg-header: rgba(18, 18, 18, 0.82);
-  --text-main: #f3f4f6;
-  --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
-  --primary: #3b82f6;
-  --primary-hover: #60a5fa;
-  --border: #2d2d2d;
-  --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  --bg: #0d0e11;
+  --surface: #16181c;
+  --text: #edece7;
+  --text-muted: #9b9a94;
+  --line: #25272c;
+  --accent: #cfa54e;
+  --on-accent: #0d0e11;
+  --success: #3fb37f;
 }
 
-* {
+@media (min-width: 640px) {
+  :root { --gutter: 2rem; }
+}
+
+@media (min-width: 1024px) {
+  :root { --gutter: 3rem; }
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background-color: var(--bg-body);
-  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-size: 1rem;
   line-height: 1.6;
-  min-height: 100vh;
-  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-    color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--bg);
+  color: var(--text);
   -webkit-font-smoothing: antialiased;
 }
 
-app-root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: var(--bg-body);
-  /* Forzar fondo en el root */
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 a {
@@ -58,29 +89,204 @@ a {
   text-decoration: none;
 }
 
-/* Utilities */
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* ---------- Clases compartidas ---------- */
+
+/* Centra el contenido y deja margen a los lados */
 .container {
-  max-width: 1200px;
+  width: 100%;
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 var(--gutter);
 }
 
-/* Header Styles Variables override */
-.header {
-  background-color: var(--bg-header) !important;
-  border-bottom: 1px solid var(--border);
+/* Cabecera de cada página: etiqueta + título grande + texto corto */
+.page-header {
+  padding: 3.5rem 0 2.5rem;
+  border-bottom: 1px solid var(--line);
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
+.page-header h1 {
+  margin-top: 0.75rem;
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
 }
 
-::-webkit-scrollbar-track {
-  background: var(--bg-body);
+.page-header p:not(.eyebrow) {
+  margin-top: 1rem;
+  max-width: 36rem;
+  font-size: 1.125rem;
+  color: var(--text-muted);
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 5px;
+/* Etiqueta pequeña en monoespaciada (números, años, categorías) */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+/* Sección con su etiqueta. En laptop la etiqueta pasa a una columna a la izquierda */
+.section {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+.section-label {
+  margin-bottom: 1.5rem;
+}
+
+/* Título de sección en dorado con una línea delante: "—— QUÉ HAGO" */
+.section-label,
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--accent);
+}
+
+.section-label::before,
+.kicker::before {
+  content: '';
+  width: 2rem;
+  height: 1px;
+  background: currentColor;
+}
+
+@media (min-width: 1024px) {
+  .section {
+    display: grid;
+    grid-template-columns: 12rem 1fr;
+    gap: 3rem;
+  }
+
+  .section-label {
+    margin-bottom: 0;
+    padding-top: 0.35rem;
+  }
+}
+
+/* Párrafo destacado en serif */
+.lead {
+  font-family: var(--font-serif);
+  font-size: clamp(1.375rem, 3vw, 1.75rem);
+  line-height: 1.35;
+  max-width: 40rem;
+}
+
+/* Lista con una línea fina entre cada elemento */
+.row-list > li + li {
+  border-top: 1px solid var(--line);
+}
+
+/* Enlace de texto con flecha: "Ver proyectos →" */
+.link-arrow {
+  display: inline-block;
+  font-weight: 500;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: color 0.2s;
+}
+
+.link-arrow:hover {
+  color: var(--accent);
+}
+
+/* Tecnologías como texto separado por puntos: "Java · Angular · MySQL" */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* El punto va después de cada elemento, así una línea nueva nunca empieza con "·" */
+.tag-list li:not(:last-child)::after {
+  content: '·';
+  margin: 0 0.5em;
+}
+
+/* Botones redondeados: .btn es dorado, .btn-outline solo tiene borde */
+.btn,
+.btn-outline {
+  display: inline-block;
+  padding: 0.85rem 1.75rem;
+  font-weight: 500;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.btn {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.btn:hover:not(:disabled) {
+  background: transparent;
+  color: var(--accent);
+}
+
+.btn-outline {
+  border-color: var(--line);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* Cuadrícula de tarjetas de proyecto: 1 columna en celular, 2 desde tablet */
+.card-grid {
+  display: grid;
+  gap: 3rem 2rem;
+}
+
+@media (min-width: 640px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mensajes de "Cargando..." o de error */
+.status {
+  padding: 3rem 0;
+  color: var(--text-muted);
+}
+
+.status .link-arrow {
+  margin-top: 1rem;
 }

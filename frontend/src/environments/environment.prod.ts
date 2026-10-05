@@ -3,6 +3,6 @@
  */
 export const environment = {
     production: true,
-    apiUrl: 'https://portfolio-production-3a9c.up.railway.app/api',
+    apiUrl: 'https://omar-polanco-api.vercel.app/api',
     appTitle: 'Portfolio',
 };

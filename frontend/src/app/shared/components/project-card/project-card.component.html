@@ -1,0 +1,22 @@
+<a class="card" [routerLink]="['/projects', project.id]">
+  <div class="card-image">
+    <img *ngIf="project.image_url && !imageMissing" [src]="project.image_url"
+      [alt]="'PROJECTS.ITEMS.' + project.id + '.NAME' | translate" loading="lazy" (error)="imageMissing = true">
+
+    <!-- Mientras no haya captura: el número del proyecto en grande -->
+    <span *ngIf="!project.image_url || imageMissing" class="card-placeholder" aria-hidden="true">
+      {{ index | number: '2.0-0' }}
+    </span>
+  </div>
+
+  <p class="card-meta eyebrow">
+    {{ index | number: '2.0-0' }} · {{ project.created_at | date: 'yyyy' }}
+  </p>
+  <h3 class="card-title">{{ 'PROJECTS.ITEMS.' + project.id + '.NAME' | translate }}</h3>
+  <p class="card-desc">{{ 'PROJECTS.ITEMS.' + project.id + '.DESC' | translate }}</p>
+
+  <!-- Solo las 3 primeras tecnologías; la lista completa está en el detalle -->
+  <ul class="tag-list">
+    <li *ngFor="let tech of project.technologies | slice: 0 : 3">{{ tech }}</li>
+  </ul>
+</a>

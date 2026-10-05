@@ -1,0 +1,61 @@
+<div class="container">
+  <header class="page-header">
+    <p class="eyebrow">{{ 'ABOUT.EYEBROW' | translate }}</p>
+    <h1>{{ 'ABOUT.TITLE' | translate }}</h1>
+    <p>{{ 'ABOUT.SUBTITLE' | translate }}</p>
+  </header>
+
+  <section class="section">
+    <h2 class="section-label eyebrow">{{ 'ABOUT.PROFILE_TITLE' | translate }}</h2>
+    <div class="prose">
+      <p>{{ 'ABOUT.PROFILE_DESC' | translate }}</p>
+      <p>{{ 'ABOUT.PROFILE_DESC_2' | translate }}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-label eyebrow">{{ 'ABOUT.TIMELINE_TITLE' | translate }}</h2>
+    <ol class="timeline">
+      <li *ngFor="let item of timeline">
+        <span class="timeline-year">{{ item.year }}</span>
+        <h3>{{ item.titleKey | translate }}</h3>
+        <p>{{ item.descKey | translate }}</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <h2 class="section-label eyebrow">{{ 'ABOUT.SKILLS_TITLE' | translate }}</h2>
+    <dl class="stack">
+      <div *ngFor="let category of techStack" class="stack-row">
+        <dt>{{ category.titleKey | translate }}</dt>
+        <dd>
+          <ul class="tag-list">
+            <li *ngFor="let tech of category.items">{{ tech }}</li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="section">
+    <h2 class="section-label eyebrow">{{ 'ABOUT.CAT_IDIOMAS' | translate }}</h2>
+    <ul class="languages">
+      <li>{{ 'ABOUT.LANG_ES' | translate }}</li>
+      <li>{{ 'ABOUT.LANG_EN' | translate }}</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2 class="section-label eyebrow">{{ 'ABOUT.PHILOSOPHY_TITLE' | translate }}</h2>
+    <ol class="principles">
+      <li *ngFor="let principle of principles; let i = index">
+        <span class="principle-number">{{ i + 1 | number: '2.0-0' }}</span>
+        <div>
+          <h3>{{ principle.titleKey | translate }}</h3>
+          <p>{{ principle.descKey | translate }}</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+</div>

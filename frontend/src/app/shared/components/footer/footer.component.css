@@ -1,0 +1,41 @@
+.footer {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.footer-inner {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.footer-name {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+}
+
+.footer-location {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+/* Tablet y laptop: nombre a la izquierda, enlaces a la derecha */
+@media (min-width: 640px) {
+  .footer-inner {
+    grid-template-columns: 1fr auto;
+    align-items: start;
+  }
+
+  .footer-copy {
+    grid-column: 1 / -1;
+  }
+}

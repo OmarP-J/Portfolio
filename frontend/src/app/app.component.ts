@@ -8,16 +8,15 @@ import { FooterComponent } from './shared/components/footer/footer.component';
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, FooterComponent],
   template: `
-    <div class="app-container">
-      <app-header></app-header>
-      <main class="main-content">
-        <router-outlet></router-outlet>
-      </main>
-      <app-footer></app-footer>
-    </div>
+    <app-header></app-header>
+    <main class="main-content">
+      <router-outlet></router-outlet>
+    </main>
+    <app-footer></app-footer>
   `,
   styles: [`
-    .app-container {
+    /* El footer queda abajo aunque la página tenga poco contenido */
+    :host {
       display: flex;
       flex-direction: column;
       min-height: 100vh;
@@ -25,10 +24,8 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 
     .main-content {
       flex: 1;
-      background: var(--bg-body);
+      padding-bottom: 4rem;
     }
   `]
 })
-export class AppComponent {
-  title = 'Portfolio';
-}
+export class AppComponent { }

@@ -1,72 +1,57 @@
-<div class="contact-container">
-  <section class="contact-hero">
+<div class="container">
+  <header class="page-header">
+    <p class="eyebrow">{{ 'CONTACT.EYEBROW' | translate }}</p>
     <h1>{{ 'CONTACT.TITLE' | translate }}</h1>
-    <p class="subtitle">{{ 'CONTACT.SUBTITLE' | translate }}</p>
-  </section>
+    <p>{{ 'CONTACT.SUBTITLE' | translate }}</p>
+  </header>
 
-  <section class="contact-content">
-    <div class="contact-intro">
-      <p>
-        {{ 'CONTACT.INTRO' | translate }}
-      </p>
+  <div class="contact-layout">
+    <!-- Izquierda (o arriba en celular): texto y enlaces directos -->
+    <div>
+      <p class="intro">{{ 'CONTACT.INTRO' | translate }}</p>
+
+      <ul class="contact-links">
+        <li *ngFor="let link of socialLinks">
+          <span class="eyebrow">{{ link.label }}</span>
+          <a [href]="link.url" [attr.target]="link.newTab ? '_blank' : null" rel="noopener">{{ link.handle }}</a>
+        </li>
+      </ul>
     </div>
 
-    <div class="form-container">
-      <div *ngIf="successMessage" class="alert alert-success">
-        {{ successMessage | translate }}
+    <!-- Derecha (o abajo en celular): formulario -->
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+      <p *ngIf="successMessage" class="alert">{{ successMessage | translate }}</p>
+      <p *ngIf="errorMessage" class="alert alert-error">{{ errorMessage | translate }}</p>
+
+      <div class="field">
+        <label for="nombre" class="eyebrow">{{ 'CONTACT.NAME' | translate }}</label>
+        <input id="nombre" type="text" formControlName="nombre" autocomplete="name"
+          [class.invalid]="errorKey('nombre')">
+        <p *ngIf="errorKey('nombre') as key" class="field-error">{{ key | translate }}</p>
       </div>
 
-      <div *ngIf="errorMessage" class="alert alert-error">
-        {{ errorMessage | translate }}
+      <div class="field">
+        <label for="correo" class="eyebrow">{{ 'CONTACT.EMAIL' | translate }}</label>
+        <input id="correo" type="email" formControlName="correo" autocomplete="email"
+          [class.invalid]="errorKey('correo')">
+        <p *ngIf="errorKey('correo') as key" class="field-error">{{ key | translate }}</p>
       </div>
 
-      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
-        <div class="form-group">
-          <label for="nombre">{{ 'CONTACT.NAME' | translate }} *</label>
-          <input type="text" id="nombre" formControlName="nombre" class="form-control"
-            [class.is-invalid]="submitted && f['nombre'].errors" />
-          <div *ngIf="submitted && f['nombre'].errors" class="error-message">
-            <div *ngIf="f['nombre'].errors['required']">{{ 'CONTACT.NAME' | translate }} {{ 'CONTACT.REQUIRED' |
-              translate
-              }}</div>
-          </div>
-        </div>
+      <div class="field">
+        <label for="asunto" class="eyebrow">{{ 'CONTACT.SUBJECT' | translate }}</label>
+        <input id="asunto" type="text" formControlName="asunto" [class.invalid]="errorKey('asunto')">
+        <p *ngIf="errorKey('asunto') as key" class="field-error">{{ key | translate }}</p>
+      </div>
 
-        <div class="form-group">
-          <label for="correo">{{ 'CONTACT.EMAIL' | translate }} *</label>
-          <input type="email" id="correo" formControlName="correo" class="form-control"
-            [class.is-invalid]="submitted && f['correo'].errors" />
-          <div *ngIf="submitted && f['correo'].errors" class="error-message">
-            <div *ngIf="f['correo'].errors['required']">{{ 'CONTACT.EMAIL' | translate }} {{ 'CONTACT.REQUIRED' |
-              translate }}</div>
-          </div>
-        </div>
+      <div class="field">
+        <label for="mensaje" class="eyebrow">{{ 'CONTACT.MESSAGE' | translate }}</label>
+        <textarea id="mensaje" rows="6" formControlName="mensaje" [class.invalid]="errorKey('mensaje')"></textarea>
+        <p *ngIf="errorKey('mensaje') as key" class="field-error">{{ key | translate }}</p>
+      </div>
 
-        <div class="form-group">
-          <label for="asunto">{{ 'CONTACT.SUBJECT' | translate }} *</label>
-          <input type="text" id="asunto" formControlName="asunto" class="form-control"
-            [class.is-invalid]="submitted && f['asunto'].errors" />
-          <div *ngIf="submitted && f['asunto'].errors" class="error-message">
-            <div *ngIf="f['asunto'].errors['required']">{{ 'CONTACT.SUBJECT' | translate }} {{ 'CONTACT.REQUIRED' |
-              translate }}</div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="mensaje">{{ 'CONTACT.MESSAGE' | translate }} *</label>
-          <textarea id="mensaje" formControlName="mensaje" rows="6" class="form-control"
-            [class.is-invalid]="submitted && f['mensaje'].errors"></textarea>
-          <div *ngIf="submitted && f['mensaje'].errors" class="error-message">
-            <div *ngIf="f['mensaje'].errors['required']">{{ 'CONTACT.MESSAGE' | translate }} {{ 'CONTACT.REQUIRED' |
-              translate }}</div>
-          </div>
-        </div>
-
-        <button type="submit" class="submit-btn" [disabled]="loading">
-          <span *ngIf="!loading">{{ 'CONTACT.SEND' | translate }}</span>
-          <span *ngIf="loading">{{ 'CONTACT.SENDING' | translate }}</span>
-        </button>
-      </form>
-    </div>
-  </section>
+      <button type="submit" class="btn" [disabled]="loading">
+        {{ (loading ? 'CONTACT.SENDING' : 'CONTACT.SEND') | translate }}
+      </button>
+    </form>
+  </div>
 </div>

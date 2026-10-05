@@ -1,0 +1,72 @@
+<div class="container">
+  <section class="hero">
+    <div>
+      <p class="badge eyebrow">
+        <span class="badge-dot"></span>
+        {{ 'HOME.AVAILABLE' | translate }}
+      </p>
+
+      <h1 class="hero-title">
+        Omar Polanco
+        <em>{{ 'HOME.TAGLINE' | translate }}</em>
+      </h1>
+
+      <p class="hero-intro">{{ 'HOME.INTRO' | translate }}</p>
+
+      <div class="hero-actions">
+        <a routerLink="/projects" class="btn">{{ 'HOME.VIEW_WORK' | translate }}</a>
+        <a routerLink="/contact" class="btn-outline">{{ 'HOME.CONTACT' | translate }}</a>
+      </div>
+    </div>
+
+    <figure class="hero-photo">
+      <img *ngIf="!photoMissing" src="assets/profile.jpg" alt="Omar Polanco" (error)="photoMissing = true">
+      <span *ngIf="photoMissing" class="photo-placeholder" aria-hidden="true">OP</span>
+    </figure>
+  </section>
+
+  <ul class="stats">
+    <li *ngIf="projectCount > 0">
+      <span class="stat-number">{{ projectCount }}</span>
+      <span class="eyebrow">{{ 'HOME.STATS.PROJECTS' | translate }}</span>
+    </li>
+    <li>
+      <span class="stat-number">{{ certificateCount }}</span>
+      <span class="eyebrow">{{ 'HOME.STATS.CERTIFICATES' | translate }}</span>
+    </li>
+    <li>
+      <span class="stat-number">{{ startYear }}</span>
+      <span class="eyebrow">{{ 'HOME.STATS.SINCE' | translate }}</span>
+    </li>
+  </ul>
+
+  <section class="home-section">
+    <h2 class="kicker eyebrow">{{ 'HOME.SERVICES_TITLE' | translate }}</h2>
+
+    <ol class="services">
+      <li *ngFor="let service of services; let i = index">
+        <span class="service-number">{{ i + 1 | number: '2.0-0' }}</span>
+        <h3>{{ service.titleKey | translate }}</h3>
+        <p>{{ service.descKey | translate }}</p>
+        <ul class="tag-list">
+          <li *ngFor="let tech of service.tech">{{ tech }}</li>
+        </ul>
+      </li>
+    </ol>
+  </section>
+
+  <section class="home-section">
+    <div class="section-header">
+      <h2 class="kicker eyebrow">{{ 'HOME.SELECTED' | translate }}</h2>
+      <a routerLink="/projects" class="see-all">{{ 'HOME.ALL_PROJECTS' | translate }} →</a>
+    </div>
+
+    <p *ngIf="loading" class="status">{{ 'PROJECTS.LOADING' | translate }}</p>
+    <p *ngIf="error" class="status">{{ 'PROJECTS.ERROR' | translate }}</p>
+
+    <div *ngIf="!loading && !error" class="card-grid three-cols">
+      <app-project-card *ngFor="let project of featuredProjects; let i = index" [project]="project"
+        [index]="i + 1"></app-project-card>
+    </div>
+  </section>
+</div>

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ContactService } from '@core/services/contact.service';
-import { TranslationService } from '@core/services/translation.service';
+import { SOCIAL_LINKS } from '@core/constants/social-links';
 import { TranslatePipe } from '@shared/pipes/translate.pipe';
 
 @Component({
@@ -14,6 +14,7 @@ import { TranslatePipe } from '@shared/pipes/translate.pipe';
 })
 export class ContactComponent {
     contactForm: FormGroup;
+    socialLinks = SOCIAL_LINKS;
     submitted = false;
     loading = false;
     successMessage: string | null = null;
@@ -21,8 +22,7 @@ export class ContactComponent {
 
     constructor(
         private fb: FormBuilder,
-        private contactService: ContactService,
-        private translationService: TranslationService
+        private contactService: ContactService
     ) {
         this.contactForm = this.fb.group({
             nombre: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
@@ -34,6 +34,22 @@ export class ContactComponent {
 
     get f() {
         return this.contactForm.controls;
+    }
+
+    /**
+     * Devuelve la clave de traducción del error de un campo,
+     * o null si el campo está bien (o si todavía no se intentó enviar).
+     */
+    errorKey(field: string): string | null {
+        const errors = this.f[field].errors;
+        if (!this.submitted || !errors) {
+            return null;
+        }
+        if (errors['required']) return 'CONTACT.ERRORS.REQUIRED';
+        if (errors['email']) return 'CONTACT.ERRORS.EMAIL';
+        if (errors['minlength']) return 'CONTACT.ERRORS.TOO_SHORT';
+        if (errors['maxlength']) return 'CONTACT.ERRORS.TOO_LONG';
+        return 'CONTACT.ERRORS.INVALID';
     }
 
     onSubmit(): void {
